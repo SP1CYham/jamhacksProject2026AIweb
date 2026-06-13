@@ -12,8 +12,9 @@
   "dependencies": {
     "bootstrap": "^5.3.8",
     "framer-motion": "^12.40.0",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react": "^19.2.7",
+    "react-curved-text": "^3.0.1",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",

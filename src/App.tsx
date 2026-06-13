@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import ReactCurvedText from "react-curved-text";
+import "./components/Question.css";
 
 
 import {
@@ -164,8 +166,8 @@ export default function App() {
       <div className="parallax-bg" />
       <img src="/clock.png" alt="mascot" className="mascot-img" />
        <div className="landing">
-      <h1 className="landing__title">TAIME</h1>
-      <h2 className="landing__title landing__title--sub">How Much Time do You Save with AI?</h2>
+      <h1 className="landing__title">How much time do</h1>
+      <h2 className="landing__title landing__title--sub">you save with AI?</h2>
       
     </div>
       <div

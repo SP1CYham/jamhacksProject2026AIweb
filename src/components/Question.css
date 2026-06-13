@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
 
 body {
-  background-image: url('https://i.pinimg.com/webp/736x/33/33/ff/3333ff0ec5be6be640ed78b6101a7057.webp');
+  background-image: url('skyday.png');
   background-size: cover;
   background-position: center;
   transform: scale(1.1);
@@ -331,8 +332,8 @@ transform:scale(1);
 }
 
 .landing__title {
-  font-family: 'Daruma Drop One', sans-serif;
-  font-size: clamp(3rem, 10vw, 7rem);
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2rem, 8vw, 4.5rem);
   color: #fff;
   margin: 0;
   line-height: 1.1;
@@ -343,7 +344,7 @@ transform:scale(1);
 }
 
 .landing__title--sub {
-  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 8vw, 4.5rem);
   text-shadow:
     0 0 20px rgba(255, 255, 255, 0.4),
     0 0 60px rgba(180, 220, 255, 0.3);
