@@ -151,26 +151,17 @@ export default function App() {
         </button>
 
         {submitted && (
-          <pre>
-            {JSON.stringify(
-              questions.map((q) => ({ id: q.id, value: q.value })),
-              null,
-              2,
-            )}
-          </pre>
+          <div style={{ alignContent: "center" }}>
+            <h3 style={{ marginBottom: "-5px" }}>you saved:</h3>
+            <h1 style={{ marginBottom: "-5px" }}>
+              {q1 !== null && q3 !== null
+                ? Math.round(Q1(q1) * Q3(q3) * 30 * 100) / 100
+                : "uh oh"}{" "}
+              hours
+            </h1>
+            <h4>last month!</h4>
+          </div>
         )}
-
-        <>
-          Q1:{" "}
-          {prompts.question.value !== null ? Q1(prompts.question.value) : null}
-        </>
-        <br></br>
-        <>
-          Q3: {usage.question.value !== null ? Q3(usage.question.value) : null}
-        </>
-        <br></br>
-        <>hours saved: {q1 !== null && q3 !== null ? Q1(q1) * Q3(q3) : null}</>
-        <br></br>
       </div>
     </>
   );
