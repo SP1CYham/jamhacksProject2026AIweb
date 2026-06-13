@@ -131,7 +131,20 @@ export function PercentageScrollbar({
                 segment.label[0]
               )}
             </span>
-            <span>{segment.label}</span>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.1rem",
+              }}
+            >
+              <span>{segment.label}</span>
+              {segment.subtitle && (
+                <span style={{ fontSize: "0.75rem", color: "#5b9bd6" }}>
+                  {segment.subtitle}
+                </span>
+              )}
+            </div>
             <span className="percentage-scrollbar__legend-value">
               {value[i]}
               {addString}

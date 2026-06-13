@@ -33,13 +33,33 @@ export default function App() {
   const models = useQuestion(
     new PercentageScrollbarQuestion(
       "AI models",
-      "What AI models do you use?",
+      "What tier of AI model do you typically use?",
       "% of the time",
       [
-        { label: "ChatGPT", color: "#86cdf0", icon: "openai1.png" },
-        { label: "Gemini", color: "#839ee7", icon: "google.png" },
-        { label: "Claude", color: "#f494b6", icon: "claude.svg" },
-        { label: "Other", color: "#bc8ce9", icon: "openai1.png" },
+        {
+          label: "Small (basic/built in)",
+          color: "#86cdf0",
+          icon: "openai1.png",
+          subtitle: "etc. Llama 3.1/Meta, Qwen 2.5 7B/Alibaba",
+        },
+        {
+          label: "Mid (free and simple)",
+          color: "#839ee7",
+          icon: "google.png",
+          subtitle: "etc. Claude Haiku 4.5, Gemini 2.0 Flash",
+        },
+        {
+          label: "Large Frontier (most common, some paid)",
+          color: "#f494b6",
+          icon: "openai1.png",
+          subtitle: "etc. GPT-4o/ChatGPT, Gemini 1.5, DeepSeek V3",
+        },
+        {
+          label: "Chain-Of-Thought (deep reasoning)",
+          color: "#bc8ce9",
+          icon: "claude.svg",
+          subtitle: "etc. OpenAI o3, Claude Opus 4.x, Gemini 2.5 Pro",
+        },
       ],
       [25, 25, 25, 25],
     ),

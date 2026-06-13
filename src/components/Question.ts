@@ -97,6 +97,7 @@ export interface PercentageSegment {
   label: string;
   color: string;
   icon: ReactNode;
+  subtitle?: string;
 }
 
 /**
