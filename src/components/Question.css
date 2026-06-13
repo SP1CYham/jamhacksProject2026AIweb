@@ -11,8 +11,8 @@ body {
 }
 
 @keyframes parallax-bg {
-  from { transform: scale(1.1) translateY(0); }
-  to   { transform: scale(1.1) translateY(-10%); }
+  from { transform: scale(1) translateY(0); }
+  to   { transform: scale(1) translateY(-10%); }
 }
 
 
@@ -39,12 +39,12 @@ body {
 }
 
 .mascot-img {
-  position: sticky;
+
   top: 10vh;
   right: 5vw;
   width: 380px;
   height: auto;
-  transform-origin: top right;
+  transform-origin:10%;
   animation: mascot-scroll linear both;
   animation-timeline: scroll();
   animation-range: 0% 40%;
@@ -292,4 +292,27 @@ body {
 .answer-card {
   text-align: center;
   margin-top: 50%;
+ font-family: 'Sour Gummy', sans-serif;
+}
+
+.continue-btn { 
+  
+  font-family:'Sour Gummy', sans-serif;
+  position:relative;
+  align-self: center;
+  margin-top: 20px;
+  top: 50%;
+  width: 29rem;
+  height: 3rem;
+  margin-left: -0.7rem;
+  border-radius: 3px;
+  background: #e9e6e6a4;
+  border: 2px solid #79838e53;
+transform:scale(1);
+
+
+}
+.continue-btn:hover{
+  transition: transform 0.3s ease-in-out;
+        transform:rotate(3deg)scale(1.05);
 }
