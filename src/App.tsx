@@ -40,7 +40,7 @@ export default function App() {
         { label: "ChatGPT", color: "#4c6ef5", icon: "🏠" },
         { label: "Gemini", color: "#f59f00", icon: "🍔" },
         { label: "Claude", color: "#e64980", icon: "🚗" },
-        { label: "Other", color: "#37b24d", icon: "💰" },
+        { label: "Other", color: "#37b24d", icon: "o" },
       ],
       [25, 25, 25, 25],
     ),
