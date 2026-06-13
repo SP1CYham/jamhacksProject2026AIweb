@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   SliderQuestion,
@@ -102,6 +102,26 @@ export default function App() {
   const q1 = prompts.question.value;
   const q3 = usage.question.value;
 
+  interface DelayedProps {
+    show: boolean;
+    delay?: number; // ms
+    children: React.ReactNode;
+  }
+  function Delayed({ show, delay = 3, children }: DelayedProps) {
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+      if (!show) {
+        setVisible(false);
+        return;
+      }
+      const timer = setTimeout(() => setVisible(true), delay * 1000);
+      return () => clearTimeout(timer);
+    }, [show, delay * 1000]);
+
+    return visible ? <>{children}</> : null;
+  }
+
   return (
     <>
       <img src="/clock.png" alt="mascot" className="mascot-img" />
@@ -116,51 +136,60 @@ export default function App() {
           zIndex: 1,
         }}
       >
-        <Slider question={prompts.question} onChange={prompts.setValue} />
-        <PercentageScrollbar
-          question={models.question}
-          onChange={models.setValue}
-        />
-        <PercentageScrollbar
-          question={usage.question}
-          onChange={usage.setValue}
-        />
-        <Slider
-          question={convoLength.question}
-          onChange={convoLength.setValue}
-        />
-        <PercentageScrollbar
-          question={generation.question}
-          onChange={generation.setValue}
-        />
-
-        <button
-          type="button"
-          disabled={!canContinue}
-          onClick={() => setSubmitted(true)}
-          style={{
-            padding: "0.6rem 1.2rem",
-            borderRadius: "0.5rem",
-            border: "none",
-            background: canContinue ? "#4c6ef5" : "#c9c9d6",
-            color: "#fff",
-            cursor: canContinue ? "pointer" : "not-allowed",
-          }}
-        >
-          Continue
-        </button>
+        {!submitted && (
+          <>
+            <Slider question={prompts.question} onChange={prompts.setValue} />
+            <PercentageScrollbar
+              question={models.question}
+              onChange={models.setValue}
+            />
+            <PercentageScrollbar
+              question={usage.question}
+              onChange={usage.setValue}
+            />
+            <Slider
+              question={convoLength.question}
+              onChange={convoLength.setValue}
+            />
+            <PercentageScrollbar
+              question={generation.question}
+              onChange={generation.setValue}
+            />
+            <button
+              type="button"
+              disabled={!canContinue}
+              onClick={() => setSubmitted(true)}
+              style={{
+                padding: "0.6rem 1.2rem",
+                borderRadius: "0.5rem",
+                border: "none",
+                background: canContinue ? "#4c6ef5" : "#c9c9d6",
+                color: "#fff",
+                cursor: canContinue ? "pointer" : "not-allowed",
+              }}
+            >
+              Continue
+            </button>
+          </>
+        )}
 
         {submitted && (
-          <div style={{ alignContent: "center" }}>
-            <h3 style={{ marginBottom: "-5px" }}>you saved:</h3>
-            <h1 style={{ marginBottom: "-5px" }}>
-              {q1 !== null && q3 !== null
-                ? Math.round(Q1(q1) * Q3(q3) * 30 * 100) / 100
-                : "uh oh"}{" "}
-              hours
-            </h1>
-            <h4>last month!</h4>
-          </div>
+          <>
+            <div>
+              <h3 style={{ marginBottom: "-5px" }}>you saved:</h3>
+              <h1 style={{ marginBottom: "-5px" }}>
+                {q1 !== null && q3 !== null
+                  ? Math.round(Q1(q1) * Q3(q3) * 30 * 100) / 100
+                  : "uh oh"}{" "}
+                hours
+              </h1>
+              <h4>last month!</h4>
+            </div>
+
+            <Delayed show={true} delay={3}>
+              <h1>uwbjbejbjwbf</h1>
+            </Delayed>
+          </>
         )}
       </div>
     </>
