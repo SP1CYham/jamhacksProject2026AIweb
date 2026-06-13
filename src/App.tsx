@@ -178,6 +178,7 @@ export default function App() {
             />
             <button
               type="button"
+              className="continue-btn"
               disabled={!canContinue}
               onClick={() => loadSecondWeb()}
               style={{
