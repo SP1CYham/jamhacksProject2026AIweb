@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+
 import {
   SliderQuestion,
   DropdownQuestion,
@@ -38,26 +39,26 @@ export default function App() {
       [
         {
           label: "Small (basic/built in)",
-          color: "#86cdf0",
-          icon: "openai1.png",
+          color: "#f1e579",
+          icon: "yelloe.png",
           subtitle: "etc. Llama 3.1/Meta, Qwen 2.5 7B/Alibaba",
         },
         {
           label: "Mid (free and simple)",
-          color: "#839ee7",
-          icon: "google.png",
+          color: "#ee9c37",
+          icon: "orangelight.png",
           subtitle: "etc. Claude Haiku 4.5, Gemini 2.0 Flash",
         },
         {
           label: "Large Frontier (most common, some paid)",
-          color: "#f494b6",
-          icon: "openai1.png",
+          color: "#d46948",
+          icon: "orang.png",
           subtitle: "etc. GPT-4o/ChatGPT, Gemini 1.5, DeepSeek V3",
         },
         {
           label: "Chain-Of-Thought (deep reasoning)",
-          color: "#bc8ce9",
-          icon: "claude.svg",
+          color: "#a13838",
+          icon: "red.png",
           subtitle: "etc. OpenAI o3, Claude Opus 4.x, Gemini 2.5 Pro",
         },
       ],
@@ -146,6 +147,11 @@ export default function App() {
     <>
       <div className="parallax-bg" />
       <img src="/clock.png" alt="mascot" className="mascot-img" />
+       <div className="landing">
+      <h1 className="landing__title">TAIME</h1>
+      <h2 className="landing__title landing__title--sub">How Much Time do You Save with AI?</h2>
+      
+    </div>
       <div
         style={{
           maxWidth: 480,

@@ -316,3 +316,57 @@ transform:scale(1);
   transition: transform 0.3s ease-in-out;
         transform:rotate(3deg)scale(1.05);
 }
+
+
+.landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.landing__title {
+  font-family: 'Daruma Drop One', sans-serif;
+  font-size: clamp(3rem, 10vw, 7rem);
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+  text-shadow:
+    0 0 30px rgba(255, 255, 255, 0.6),
+    0 0 80px rgba(180, 220, 255, 0.4),
+    0 0 140px rgba(140, 190, 255, 0.2);
+}
+
+.landing__title--sub {
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.4),
+    0 0 60px rgba(180, 220, 255, 0.3);
+  margin-top: 0.25rem;
+}
+
+
+.landing__scroll-btn {
+  display: inline-block;
+  padding: 0.45rem 1.4rem;
+  border: 1.5px solid #3d7ab5;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #1a3a5c;
+  font-family: 'Sour Gummy', sans-serif;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(100, 160, 220, 0.14);
+  transition: background 0.13s, transform 0.13s, box-shadow 0.13s;
+}
+
+.landing__scroll-btn:hover {
+  background: rgba(210, 235, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(80, 140, 210, 0.22);
+}
