@@ -14,7 +14,6 @@ import { Dropdown } from "./components/Dropdown";
 import { SelectableList } from "./components/SelectableList";
 import { useQuestion, allAnswered } from "./components/useQuestion";
 
-
 import { Q1, Q3 } from "./CarbonCalc";
 
 export default function App() {
@@ -102,6 +101,19 @@ export default function App() {
   const q1 = prompts.question.value;
   const q3 = usage.question.value;
 
+  function userType() {
+    var index = 0;
+    if (q1 !== null) {
+      if (q1 >= 17) index = 2;
+      else if (q1 >= 8) index = 1;
+    }
+    return index;
+
+    //0 is light
+    //1 is medium
+    //2 is heavy
+  }
+
   interface DelayedProps {
     show: boolean;
     delay?: number; // ms
@@ -124,7 +136,7 @@ export default function App() {
 
   return (
     <>
-    <div className="parallax-bg" />
+      <div className="parallax-bg" />
       <img src="/clock.png" alt="mascot" className="mascot-img" />
       <div
         style={{
@@ -188,7 +200,13 @@ export default function App() {
             </div>
 
             <Delayed show={true} delay={3}>
-              <h1>uwbjbejbjwbf</h1>
+              <h1>but what did it cost?</h1>
+            </Delayed>
+            <Delayed show={true} delay={3.5}>
+              find out below <br></br>
+              <line style={{ fontSize: "10px", color: "gray" }}>
+                vvvvvvvvvvv
+              </line>
             </Delayed>
           </>
         )}
