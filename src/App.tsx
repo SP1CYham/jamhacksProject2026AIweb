@@ -14,6 +14,9 @@ import { Dropdown } from "./components/Dropdown";
 import { SelectableList } from "./components/SelectableList";
 import { useQuestion, allAnswered } from "./components/useQuestion";
 
+//calculations
+import { Q1, Q3 } from "./CarbonCalc";
+
 export default function App() {
   const prompts = useQuestion(
     new SliderQuestion(
@@ -58,38 +61,30 @@ export default function App() {
     ),
   );
 
-  const country = useQuestion(
-    new DropdownQuestion("country", "Where do you live?", [
-      { label: "Canada", value: "ca" },
-      { label: "United States", value: "us" },
-      { label: "United Kingdom", value: "uk" },
-    ]),
-  );
-
-  const interests = useQuestion(
-    new SelectableListQuestion(
-      "interests",
-      "What are you interested in?",
-      [
-        { label: "Sports", value: "sports" },
-        { label: "Music", value: "music" },
-        { label: "Reading", value: "reading" },
-        { label: "Gaming", value: "gaming" },
-      ],
-      true, // multiple = true -> can select one or more
+  const convoLength = useQuestion(
+    new SliderQuestion(
+      "conversation length",
+      "When using AI, how long are your conversations?",
+      {
+        min: 2,
+        max: 50,
+        step: 1,
+        addString: " messages",
+        customEnd: "50+",
+      },
     ),
   );
 
-  const favoriteColor = useQuestion(
-    new SelectableListQuestion(
-      "favoriteColor",
-      "Pick your favorite color",
+  const generation = useQuestion(
+    new PercentageScrollbarQuestion(
+      "AI generation",
+      "What do you typically use AI to generate?",
+      "%",
       [
-        { label: "Red", value: "red" },
-        { label: "Blue", value: "blue" },
-        { label: "Green", value: "green" },
+        { label: "Text", color: "#4c6ef5", icon: "🏠" },
+        { label: "Images", color: "#f59f00", icon: "🍔" },
       ],
-      false, // multiple = false -> single select
+      [50, 50],
     ),
   );
 
@@ -99,70 +94,84 @@ export default function App() {
     prompts.question,
     models.question,
     usage.question,
-    interests.question,
-    favoriteColor.question,
+    convoLength.question,
+    generation.question,
   ];
   const canContinue = allAnswered(questions);
 
-  return (
-  <>
-      <img src="/clock.png" alt="mascot" className="mascot-img" />
-    <div
-      style={{
-        maxWidth: 480,
-        margin: "2rem auto",
-        display: "flex",
-        flexDirection: "column",
-        gap: "1rem",
-        position: "relative",  
-        zIndex: 1, 
-      }}
-    >
-      <Slider question={prompts.question} onChange={prompts.setValue} />
-      <PercentageScrollbar
-        question={models.question}
-        onChange={models.setValue}
-      />
-      <PercentageScrollbar
-        question={usage.question}
-        onChange={usage.setValue}
-      />
-      <Dropdown question={country.question} onChange={country.setValue} />
-      <SelectableList
-        question={interests.question}
-        onChange={interests.setValue}
-      />
-      <SelectableList
-        question={favoriteColor.question}
-        onChange={favoriteColor.setValue}
-      />
+  const q1 = prompts.question.value;
+  const q3 = usage.question.value;
 
-      <button
-        type="button"
-        disabled={!canContinue}
-        onClick={() => setSubmitted(true)}
+  return (
+    <>
+      <img src="/clock.png" alt="mascot" className="mascot-img" />
+      <div
         style={{
-          padding: "0.6rem 1.2rem",
-          borderRadius: "0.5rem",
-          border: "none",
-          background: canContinue ? "#4c6ef5" : "#c9c9d6",
-          color: "#fff",
-          cursor: canContinue ? "pointer" : "not-allowed",
+          maxWidth: 480,
+          margin: "2rem auto",
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+          position: "relative",
+          zIndex: 1,
         }}
       >
-        Continue
-      </button>
+        <Slider question={prompts.question} onChange={prompts.setValue} />
+        <PercentageScrollbar
+          question={models.question}
+          onChange={models.setValue}
+        />
+        <PercentageScrollbar
+          question={usage.question}
+          onChange={usage.setValue}
+        />
+        <Slider
+          question={convoLength.question}
+          onChange={convoLength.setValue}
+        />
+        <PercentageScrollbar
+          question={generation.question}
+          onChange={generation.setValue}
+        />
 
-      {submitted && (
-        <pre>
-          {JSON.stringify(
-            questions.map((q) => ({ id: q.id, value: q.value })),
-            null,
-            2,
-          )}
-        </pre>
-      )}
-    </div>
- </>
+        <button
+          type="button"
+          disabled={!canContinue}
+          onClick={() => setSubmitted(true)}
+          style={{
+            padding: "0.6rem 1.2rem",
+            borderRadius: "0.5rem",
+            border: "none",
+            background: canContinue ? "#4c6ef5" : "#c9c9d6",
+            color: "#fff",
+            cursor: canContinue ? "pointer" : "not-allowed",
+          }}
+        >
+          Continue
+        </button>
+
+        {submitted && (
+          <pre>
+            {JSON.stringify(
+              questions.map((q) => ({ id: q.id, value: q.value })),
+              null,
+              2,
+            )}
+          </pre>
+        )}
+
+        <>
+          Q1:{" "}
+          {prompts.question.value !== null ? Q1(prompts.question.value) : null}
+        </>
+        <br></br>
+        <>
+          Q3: {usage.question.value !== null ? Q3(usage.question.value) : null}
+        </>
+        <br></br>
+        <>hours saved: {q1 !== null && q3 !== null ? Q1(q1) * Q3(q3) : null}</>
+        <br></br>
+      </div>
+    </>
   );
 }
