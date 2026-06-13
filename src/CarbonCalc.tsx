@@ -20,9 +20,9 @@ export function kWattHours(
   lengthConvo: number,
   imgPercentage: number,
 ) {
-  const tokens = prompts * 500;
-  const tierCo = [0.0002, 0.0006, 0.002, 0.02];
-  const usageCo = [2, 1, 1, 0.2, 0.1];
+  const tokens = prompts * 400;
+  const tierCo = [0.0002, 0.0006, 0.002, 0.01];
+  const usageCo = [1.8, 1, 1, 0.2, 0.1];
 
   var tierF = 0;
   for (let i = 0; i < tier.length; i++) {
@@ -43,7 +43,7 @@ export function kWattHours(
       (1 - imgPercentage) *
       tierF *
       usageF *
-      (1 + (lengthConvo - 1) * 0.15) +
+      (1 + (lengthConvo - 1) * 0.13) +
       prompts * imgPercentage * 2.9) *
       1.4) /
       1000) *
