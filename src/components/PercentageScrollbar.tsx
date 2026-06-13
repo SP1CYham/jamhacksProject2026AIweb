@@ -112,22 +112,33 @@ export function PercentageScrollbar({
       </div>
 
       {/* Legend */}
-    <div className="percentage-scrollbar__legend">
-      {segments.map((segment, i) => (
-         <div key={i} className="percentage-scrollbar__legend-item">
-           <span className="percentage-scrollbar__legend-icon">
-        {segment.icon ? (
-          <img src={segment.icon} alt={segment.label} style={{ width: '1.1rem', height: '1.1rem', objectFit: 'contain', verticalAlign: 'middle' }} />
-        ) : segment.label[0]}
-      </span>
-      <span>{segment.label}</span>
-      <span className="percentage-scrollbar__legend-value">
-        {value[i]}
-        {addString}
-      </span>
-    </div>
-  ))}
-</div>
+      <div className="percentage-scrollbar__legend">
+        {segments.map((segment, i) => (
+          <div key={i} className="percentage-scrollbar__legend-item">
+            <span className="percentage-scrollbar__legend-icon">
+              {segment.icon ? (
+                <img
+                  src={typeof segment.icon == "string" ? segment.icon : ""}
+                  alt={segment.label}
+                  style={{
+                    width: "1.1rem",
+                    height: "1.1rem",
+                    objectFit: "contain",
+                    verticalAlign: "middle",
+                  }}
+                />
+              ) : (
+                segment.label[0]
+              )}
+            </span>
+            <span>{segment.label}</span>
+            <span className="percentage-scrollbar__legend-value">
+              {value[i]}
+              {addString}
+            </span>
+          </div>
+        ))}
+      </div>
 
       {/* Track + segments + handles */}
       <div className="percentage-scrollbar__track" ref={trackRef}>
@@ -180,11 +191,25 @@ export function PercentageScrollbar({
           const right = i === boundaries.length ? 100 : boundaries[i];
           const center = (left + right) / 2;
           return (
-            <span key={i} className="percentage-scrollbar__icon" style={{ left: `${center}%` }}>
-  {segment.icon ? (
-    <img src={segment.icon} alt={segment.label} style={{ width: '1.4rem', height: '1.4rem', objectFit: 'contain' }} />
-  ) : segment.label[0]}
-</span>
+            <span
+              key={i}
+              className="percentage-scrollbar__icon"
+              style={{ left: `${center}%` }}
+            >
+              {segment.icon ? (
+                <img
+                  src={typeof segment.icon == "string" ? segment.icon : ""}
+                  alt={segment.label}
+                  style={{
+                    width: "1.4rem",
+                    height: "1.4rem",
+                    objectFit: "contain",
+                  }}
+                />
+              ) : (
+                segment.label[0]
+              )}
+            </span>
           );
         })}
       </div>

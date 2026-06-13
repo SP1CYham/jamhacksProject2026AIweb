@@ -7,7 +7,8 @@ interface SliderProps {
 }
 
 export function Slider({ question, onChange }: SliderProps) {
-  const { label, min, max, step, value, customEnd, answered } = question;
+  const { label, min, max, step, addString, value, customEnd, answered } =
+    question;
 
   return (
     <div className={`question ${answered ? "question--answered" : ""}`}>
@@ -41,6 +42,7 @@ export function Slider({ question, onChange }: SliderProps) {
             : value === max && customEnd
               ? customEnd
               : value}
+          {addString}
         </span>
       </div>
 

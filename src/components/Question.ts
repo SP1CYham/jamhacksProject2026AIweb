@@ -48,17 +48,19 @@ export class SliderQuestion extends Question<number | null> {
   readonly max: number;
   readonly step: number;
   readonly customEnd?: string;
+  readonly addString?: string;
 
   constructor(
     id: string,
     label: string,
-    options: { min: number; max: number; step?: number; value?: number | null; customEnd?: string },
+    options: { min: number; max: number; step?: number; addString?: string, value?: number | null; customEnd?: string },
   ) {
     super(id, label, options.value ?? null);
     this.min = options.min;
     this.max = options.max;
     this.step = options.step ?? 1;
     this.customEnd = options.customEnd;
+    this.addString = options.addString;
   }
 
   get answered(): boolean {
@@ -199,6 +201,6 @@ export class SelectableListQuestion extends Question<string[]> {
   }
 
   get answered(): boolean {
-    return this.value.length > 0;
+    return this.options.length > 0;
   }
 }

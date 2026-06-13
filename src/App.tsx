@@ -17,6 +17,9 @@ import { Dropdown } from "./components/Dropdown";
 import { SelectableList } from "./components/SelectableList";
 import { useQuestion, allAnswered } from "./components/useQuestion";
 
+//calculations
+import { Q1 } from "./CarbonCalc";
+
 export default function App() {
   const prompts = useQuestion(
     new SliderQuestion(
@@ -61,38 +64,30 @@ export default function App() {
     ),
   );
 
-  const country = useQuestion(
-    new DropdownQuestion("country", "Where do you live?", [
-      { label: "Canada", value: "ca" },
-      { label: "United States", value: "us" },
-      { label: "United Kingdom", value: "uk" },
-    ]),
-  );
-
-  const interests = useQuestion(
-    new SelectableListQuestion(
-      "interests",
-      "What are you interested in?",
-      [
-        { label: "Sports", value: "sports" },
-        { label: "Music", value: "music" },
-        { label: "Reading", value: "reading" },
-        { label: "Gaming", value: "gaming" },
-      ],
-      true, // multiple = true -> can select one or more
+  const convoLength = useQuestion(
+    new SliderQuestion(
+      "conversation length",
+      "When using AI, how long are your conversations?",
+      {
+        min: 2,
+        max: 50,
+        step: 1,
+        addString: " messages",
+        customEnd: "50+",
+      },
     ),
   );
 
-  const favoriteColor = useQuestion(
-    new SelectableListQuestion(
-      "favoriteColor",
-      "Pick your favorite color",
+  const generation = useQuestion(
+    new PercentageScrollbarQuestion(
+      "AI generation",
+      "What do you typically use AI to generate?",
+      "%",
       [
-        { label: "Red", value: "red" },
-        { label: "Blue", value: "blue" },
-        { label: "Green", value: "green" },
+        { label: "Text", color: "#4c6ef5", icon: "🏠" },
+        { label: "Images", color: "#f59f00", icon: "🍔" },
       ],
-      false, // multiple = false -> single select
+      [50, 50],
     ),
   );
 
@@ -102,8 +97,8 @@ export default function App() {
     prompts.question,
     models.question,
     usage.question,
-    interests.question,
-    favoriteColor.question,
+    convoLength.question,
+    generation.question,
   ];
   const canContinue = allAnswered(questions);
 
@@ -117,6 +112,9 @@ export default function App() {
         gap: "1rem",
       }}
     >
+      <h1 style={{ marginBottom: "-20px" }}>How much TIME</h1>
+      <h3>do you save using AI?</h3>
+
       <Slider question={prompts.question} onChange={prompts.setValue} />
       <PercentageScrollbar
         question={models.question}
@@ -126,14 +124,10 @@ export default function App() {
         question={usage.question}
         onChange={usage.setValue}
       />
-      <Dropdown question={country.question} onChange={country.setValue} />
-      <SelectableList
-        question={interests.question}
-        onChange={interests.setValue}
-      />
-      <SelectableList
-        question={favoriteColor.question}
-        onChange={favoriteColor.setValue}
+      <Slider question={convoLength.question} onChange={convoLength.setValue} />
+      <PercentageScrollbar
+        question={generation.question}
+        onChange={generation.setValue}
       />
 
       <button
@@ -161,6 +155,8 @@ export default function App() {
           )}
         </pre>
       )}
+
+      <>{prompts.question.value !== null ? Q1(prompts.question.value) : null}</>
     </div>
   );
 }
