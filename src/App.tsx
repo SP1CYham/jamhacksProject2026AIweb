@@ -5,18 +5,20 @@ import {
   DropdownQuestion,
   SelectableListQuestion,
   PercentageSplitQuestion,
+  PercentageScrollbarQuestion,
   Question,
 } from "./components/Question";
 
 //tsx
 import { Slider } from "./components/Slider";
 import { PercentageSplit } from "./components/PercentageSplit";
+import { PercentageScrollbar } from "./components/PercentageScrollbar";
 import { Dropdown } from "./components/Dropdown";
 import { SelectableList } from "./components/SelectableList";
 import { useQuestion, allAnswered } from "./components/useQuestion";
 
 export default function App() {
-  const age = useQuestion(
+  const prompts = useQuestion(
     new SliderQuestion(
       "prompts",
       "On average, how many prompts do you make a day?",
@@ -29,13 +31,34 @@ export default function App() {
     ),
   );
 
-  const split = useQuestion(
-    new PercentageSplitQuestion("AI usage", "What AI models do you use?", "%", [
-      { label: "ChatGPT", max: 100, step: 5 },
-      { label: "Gemini", max: 100, step: 5 },
-      { label: "Claude", max: 100, step: 5 },
-      { label: "Other" }, // not editable, just the label
-    ]),
+  const models = useQuestion(
+    new PercentageScrollbarQuestion(
+      "AI models",
+      "What AI models do you use?",
+      "% of the time",
+      [
+        { label: "ChatGPT", color: "#4c6ef5", icon: "🏠" },
+        { label: "Gemini", color: "#f59f00", icon: "🍔" },
+        { label: "Claude", color: "#e64980", icon: "🚗" },
+        { label: "Other", color: "#37b24d", icon: "💰" },
+      ],
+      [25, 25, 25, 25],
+    ),
+  );
+  const usage = useQuestion(
+    new PercentageScrollbarQuestion(
+      "AI usage",
+      "What do you commonly use AI for?",
+      "%",
+      [
+        { label: "Coding/Problem Solving", color: "#4c6ef5", icon: "🏠" },
+        { label: "Writing", color: "#f59f00", icon: "🍔" },
+        { label: "Research", color: "#e64980", icon: "🚗" },
+        { label: "Everyday Questions/Tasks", color: "#addeef", icon: "🚗" },
+        { label: "Other", color: "#37b24d", icon: "💰" },
+      ],
+      [20, 20, 20, 20, 20],
+    ),
   );
 
   const country = useQuestion(
@@ -76,8 +99,9 @@ export default function App() {
   const [submitted, setSubmitted] = useState(false);
 
   const questions = [
-    age.question,
-    country.question,
+    prompts.question,
+    models.question,
+    usage.question,
     interests.question,
     favoriteColor.question,
   ];
@@ -93,8 +117,15 @@ export default function App() {
         gap: "1rem",
       }}
     >
-      <Slider question={age.question} onChange={age.setValue} />
-      <PercentageSplit question={split.question} onChange={split.setValue} />
+      <Slider question={prompts.question} onChange={prompts.setValue} />
+      <PercentageScrollbar
+        question={models.question}
+        onChange={models.setValue}
+      />
+      <PercentageScrollbar
+        question={usage.question}
+        onChange={usage.setValue}
+      />
       <Dropdown question={country.question} onChange={country.setValue} />
       <SelectableList
         question={interests.question}

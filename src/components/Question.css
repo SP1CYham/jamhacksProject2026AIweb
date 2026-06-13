@@ -74,6 +74,99 @@
   opacity: 0.85;
 }
 
+/* Percentage scrollbar */
+.percentage-scrollbar__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  font-size: 0.85rem;
+  color: #1f2230;
+}
+
+.percentage-scrollbar__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.percentage-scrollbar__legend-swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 0.2rem;
+  display: inline-block;
+}
+
+.percentage-scrollbar__legend-icon {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.percentage-scrollbar__legend-value {
+  font-weight: 600;
+  margin-left: 0.15rem;
+}
+
+.percentage-scrollbar__track {
+  position: relative;
+  height: 2.25rem;
+  margin: 0 0.65rem;
+}
+
+.percentage-scrollbar__segments {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #e8e8f0;
+}
+
+.percentage-scrollbar__segment {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  transition: left 0.05s linear, width 0.05s linear;
+}
+
+.percentage-scrollbar__handle {
+  position: absolute;
+  top: 50%;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-left: -0.7rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #1f2230;
+  transform: translateY(-50%);
+  cursor: grab;
+  touch-action: none;
+}
+
+.percentage-scrollbar__handle:active {
+  cursor: grabbing;
+}
+
+.percentage-scrollbar__handle:focus-visible {
+  outline: 2px solid #4c6ef5;
+  outline-offset: 2px;
+}
+
+.percentage-scrollbar__icons {
+  position: relative;
+  height: 1.75rem;
+  margin: 0 0.65rem;
+}
+
+.percentage-scrollbar__icon {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
 /* Dropdown */
 .question__select {
   padding: 0.5rem 0.75rem;

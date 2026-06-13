@@ -88,6 +88,51 @@ export class DropdownQuestion extends Question<string | null> {
   }
 }
 
+import type { ReactNode } from 'react';
+
+/** Config for one segment of a PercentageScrollbarQuestion. */
+export interface PercentageSegment {
+  label: string;
+  color: string;
+  icon: ReactNode;
+}
+
+/**
+ * A single track with N-1 draggable handles splitting it into N segments
+ * that always sum to 100%. Dragging a handle only trades percentage
+ * between its two immediate neighbours.
+ */
+export class PercentageScrollbarQuestion extends Question<number[]> {
+  readonly segments: PercentageSegment[];
+  readonly step: number;
+  readonly addString?: String;
+
+  constructor(id: string, label: string, addString: string, segments: PercentageSegment[], value?: number[], step = 1) {
+    if (segments.length < 2) {
+      throw new Error('PercentageScrollbarQuestion needs at least 2 segments.');
+    }
+
+    const n = segments.length;
+    const base = Math.floor(100 / n);
+    const defaultValue = Array.from({ length: n }, (_, i) =>
+      i === n - 1 ? 100 - base * (n - 1) : base,
+    );
+
+    super(id, label, value ?? defaultValue);
+    this.segments = segments;
+    this.step = step;
+    this.addString = addString;
+  }
+
+  get total(): number {
+    return this.value.reduce((sum, v) => sum + v, 0);
+  }
+
+  get answered(): boolean {
+    return this.total === 100;
+  }
+}
+
 /** A slider's static config, reused by PercentageSplitQuestion. */
 export interface PercentageOption {
   label: string;
@@ -112,6 +157,7 @@ export class PercentageSplitQuestion extends Question<number[]> {
     const editableCount = options.length - 1;
     super(id, label, value ?? new Array(editableCount).fill(0));
     this.options = options;
+    this.addString = addString;
   }
 
   /** Sum of the editable sliders' values. */
