@@ -188,7 +188,7 @@ export default function App() {
 
         {submitted && (
           <>
-            <div>
+            <div className="answer-card">
               <h3 style={{ marginBottom: "-5px" }}>you saved:</h3>
               <h1 style={{ marginBottom: "-5px" }}>
                 {q1 !== null && q3 !== null
