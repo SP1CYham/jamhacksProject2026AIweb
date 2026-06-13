@@ -15,7 +15,7 @@ import { Dropdown } from "./components/Dropdown";
 import { SelectableList } from "./components/SelectableList";
 import { useQuestion, allAnswered } from "./components/useQuestion";
 
-import { Q1, Q3 } from "./CarbonCalc";
+import { Q1, Q3, kWattHours } from "./CarbonCalc";
 
 export default function App() {
   const prompts = useQuestion(
@@ -143,6 +143,22 @@ export default function App() {
     });
   }
 
+  function kiloWattHrs() {
+    if (
+      typeof q1 !== "number" ||
+      typeof convoLength.question.value !== "number"
+    )
+      return null;
+    else
+      return kWattHours(
+        q1,
+        models.question.value,
+        usage.question.value,
+        convoLength.question.value,
+        generation.question.value[1],
+      );
+  }
+
   return (
     <>
       <div className="parallax-bg" />
@@ -203,7 +219,7 @@ export default function App() {
 
         {submitted && (
           <>
-            <div className="answer-card" style={{ marginBottom: "100px" }}>
+            <div className="answer-card" style={{ marginBottom: "200px" }}>
               <h3 style={{ marginBottom: "-5px", fontSize: "50px" }}>
                 you saved:
               </h3>
@@ -216,7 +232,7 @@ export default function App() {
               <h4>last month!</h4>
             </div>
 
-            <div style={{ textAlign: "center" }}>
+            <div style={{ textAlign: "center", marginBottom: "200px" }}>
               <h1
                 style={{
                   transition: "opacity 0.4s ease",
@@ -224,26 +240,71 @@ export default function App() {
               >
                 but what did it cost?
               </h1>
-              find out below <br></br>
-              <div
-                style={{
-                  fontSize: "10px",
-                  color: "gray",
-                  marginBottom: "150px",
-                }}
-              >
-                vvvvvvvvvvv
-              </div>
-              <div style={{ textAlign: "left" }}>
-                Based on your answers...
+              AI is reshaping how your brain works, quietly and consistently.
+              The research isn't speculative anymore.
+            </div>
+            <div style={{ textAlign: "left" }}>
+              <>
+                <line style={{ fontWeight: "bold" }}>
+                  Based on your answers...
+                </line>
                 <br></br>
-                {userType() == 0 && <div></div>}
-                {userType() == 1 && <div></div>}
-                {userType() == 2 && (
+                {userType() == 0 && (
                   <div>
-                    you use a lot more than everyone else <br></br>fatso
+                    You use AI occasionally, and that probably feels harmless.
+                    But even a single AI-assisted task produces measurably
+                    reduced neural connectivity compared to doing it alone. In
+                    one study, AI users showed 55% lower cognitive engagement,
+                    and 83% couldn't recall key details from tasks they had just
+                    completed.
+                    <br></br>
+                    <br></br>
+                    There's no completely neutral baseline. Every time you hand
+                    a task to AI, your brain opts out a little. No one is exempt
+                    from the lingering effects of taking shortcuts.
                   </div>
                 )}
+                {userType() == 1 && (
+                  <div>
+                    At the rate you use AI, the research gets hard to ignore.
+                    Studies show a correlation of r = -0.68 between AI usage and
+                    cognitive decline. Memory, attention, critical thinking,
+                    decision-making. Not one or two of these. All of them,
+                    declining together, in people using AI at the same frequency
+                    you do. You may have already noticed something feels off.
+                    That's not a coincidence. AI users at your level report a
+                    17% decrease in knowledge retention. Information goes in,
+                    but it doesn't stick the way it once did.
+                    <br></br>
+                    <br></br>
+                    You are at the stage where the effects of AI stop being
+                    subtle.
+                  </div>
+                )}
+                {userType() == 2 && (
+                  <div>
+                    At the rate you use, AI dependency isn't a risk. It's likely
+                    already present. Research shows a strong negative
+                    correlation between AI usage and cognitive decline, meaning
+                    the heavier the use, the more significant the effects.
+                    Memory, attention, critical thinking and decision-making are
+                    all in measurable decline. On top of that, the constant
+                    back-and-forth with AI quietly dismantles your ability to
+                    think on your own, with users who use similar amounts of AI
+                    as you reporting significant cognitive fatigue and burnout.
+                    That dependency has been linked to broader mental health
+                    decline. Not just foggy thinking. Your overall wellbeing is
+                    at risk.
+                    <br></br>
+                    <br></br>
+                    The tool you're using to save time may be costing you
+                    something much harder to get back.
+                  </div>
+                )}
+              </>
+              <div>
+                you used {kiloWattHrs()}
+                many kilo watt hours
               </div>
             </div>
           </>
