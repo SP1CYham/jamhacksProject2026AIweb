@@ -114,24 +114,12 @@ export default function App() {
     //2 is heavy
   }
 
-  interface DelayedProps {
-    show: boolean;
-    delay?: number; // ms
-    children: React.ReactNode;
-  }
-  function Delayed({ show, delay = 3, children }: DelayedProps) {
-    const [visible, setVisible] = useState(false);
-
-    useEffect(() => {
-      if (!show) {
-        setVisible(false);
-        return;
-      }
-      const timer = setTimeout(() => setVisible(true), delay * 1000);
-      return () => clearTimeout(timer);
-    }, [show, delay * 1000]);
-
-    return visible ? <>{children}</> : null;
+  function loadSecondWeb() {
+    setSubmitted(true);
+    window.scrollTo({
+      top: 0,
+      behavior: "auto", // Enables smooth scrolling
+    });
   }
 
   return (
@@ -171,7 +159,7 @@ export default function App() {
             <button
               type="button"
               disabled={!canContinue}
-              onClick={() => setSubmitted(true)}
+              onClick={() => loadSecondWeb()}
               style={{
                 padding: "0.6rem 1.2rem",
                 borderRadius: "0.5rem",
@@ -188,9 +176,11 @@ export default function App() {
 
         {submitted && (
           <>
-            <div className="answer-card">
-              <h3 style={{ marginBottom: "-5px" }}>you saved:</h3>
-              <h1 style={{ marginBottom: "-5px" }}>
+            <div className="answer-card" style={{ marginBottom: "100px" }}>
+              <h3 style={{ marginBottom: "-5px", fontSize: "50px" }}>
+                you saved:
+              </h3>
+              <h1 style={{ marginBottom: "-5px", fontSize: "80px" }}>
                 {q1 !== null && q3 !== null
                   ? Math.round(Q1(q1) * Q3(q3) * 30 * 100) / 100
                   : "uh oh"}{" "}
@@ -199,15 +189,36 @@ export default function App() {
               <h4>last month!</h4>
             </div>
 
-            <Delayed show={true} delay={3}>
-              <h1>but what did it cost?</h1>
-            </Delayed>
-            <Delayed show={true} delay={3.5}>
+            <div style={{ textAlign: "center" }}>
+              <h1
+                style={{
+                  transition: "opacity 0.4s ease",
+                }}
+              >
+                but what did it cost?
+              </h1>
               find out below <br></br>
-              <line style={{ fontSize: "10px", color: "gray" }}>
+              <div
+                style={{
+                  fontSize: "10px",
+                  color: "gray",
+                  marginBottom: "150px",
+                }}
+              >
                 vvvvvvvvvvv
-              </line>
-            </Delayed>
+              </div>
+              <div style={{ textAlign: "left" }}>
+                Based on your answers...
+                <br></br>
+                {userType() == 0 && <div></div>}
+                {userType() == 1 && <div></div>}
+                {userType() == 2 && (
+                  <div>
+                    you use a lot more than everyone else <br></br>fatso
+                  </div>
+                )}
+              </div>
+            </div>
           </>
         )}
       </div>

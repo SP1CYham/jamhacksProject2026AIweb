@@ -1,3 +1,4 @@
+//before
 export function Q1(prompts: number) {
   return 0.24 * Math.sqrt(prompts);
 }
@@ -10,3 +11,5 @@ export function Q3(usage: number[]) {
 
   return n / 100;
 }
+
+//after
