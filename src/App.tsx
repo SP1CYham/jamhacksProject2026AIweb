@@ -14,7 +14,7 @@ import { Dropdown } from "./components/Dropdown";
 import { SelectableList } from "./components/SelectableList";
 import { useQuestion, allAnswered } from "./components/useQuestion";
 
-//calculations
+
 import { Q1, Q3 } from "./CarbonCalc";
 
 export default function App() {
@@ -124,6 +124,7 @@ export default function App() {
 
   return (
     <>
+    <div className="parallax-bg" />
       <img src="/clock.png" alt="mascot" className="mascot-img" />
       <div
         style={{
