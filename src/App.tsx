@@ -4,14 +4,11 @@ import {
   SliderQuestion,
   DropdownQuestion,
   SelectableListQuestion,
-  PercentageSplitQuestion,
   PercentageScrollbarQuestion,
-  Question,
 } from "./components/Question";
 
 //tsx
 import { Slider } from "./components/Slider";
-import { PercentageSplit } from "./components/PercentageSplit";
 import { PercentageScrollbar } from "./components/PercentageScrollbar";
 import { Dropdown } from "./components/Dropdown";
 import { SelectableList } from "./components/SelectableList";
@@ -108,6 +105,8 @@ export default function App() {
   const canContinue = allAnswered(questions);
 
   return (
+  <>
+      <img src="/clock.png" alt="mascot" className="mascot-img" />
     <div
       style={{
         maxWidth: 480,
@@ -115,6 +114,8 @@ export default function App() {
         display: "flex",
         flexDirection: "column",
         gap: "1rem",
+        position: "relative",  
+        zIndex: 1, 
       }}
     >
       <Slider question={prompts.question} onChange={prompts.setValue} />
@@ -162,5 +163,6 @@ export default function App() {
         </pre>
       )}
     </div>
+ </>
   );
 }

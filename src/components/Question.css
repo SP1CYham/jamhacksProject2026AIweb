@@ -28,6 +28,30 @@ body {
   animation: fadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+.mascot-img {
+  position: fixed;
+  top: 10vh;
+  right: 5vw;
+  width: 380px;
+  height: auto;
+  transform-origin: top right;
+  animation: mascot-scroll linear both;
+  animation-timeline: scroll();
+  animation-range: 0% 40%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes mascot-scroll {
+  from {
+    transform: translateX(15vw) scale(1.2);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-70vw) scale(0.6);
+    opacity: 0.7;
+  }
+}
 
 .question:nth-child(1) { animation-delay: 0.08s; }
 .question:nth-child(2) { animation-delay: 0.22s; }
@@ -132,6 +156,7 @@ body {
   border-radius: 4px;                         
   background: rgba(255, 255, 255, 0.88);
   color: #1a3a5c;
+  z-index: 1;
   cursor: pointer;
   font-size: 0.9rem;
   font-family: 'Sour Gummy', sans-serif;
@@ -252,3 +277,5 @@ body {
   justify-content: center;
   line-height: 1;
 }
+
+
