@@ -1,22 +1,41 @@
 import { useState } from "react";
+
 import {
   SliderQuestion,
   DropdownQuestion,
   SelectableListQuestion,
+  PercentageSplitQuestion,
   Question,
 } from "./components/Question";
+
+//tsx
 import { Slider } from "./components/Slider";
+import { PercentageSplit } from "./components/PercentageSplit";
 import { Dropdown } from "./components/Dropdown";
 import { SelectableList } from "./components/SelectableList";
 import { useQuestion, allAnswered } from "./components/useQuestion";
 
 export default function App() {
   const age = useQuestion(
-    new SliderQuestion("age", "How old are you?", {
-      min: 0,
-      max: 100,
-      step: 1,
-    }),
+    new SliderQuestion(
+      "prompts",
+      "On average, how many prompts do you make a day?",
+      {
+        min: 0,
+        max: 30,
+        step: 1,
+        customEnd: "30+",
+      },
+    ),
+  );
+
+  const split = useQuestion(
+    new PercentageSplitQuestion("AI usage", "What AI models do you use?", "%", [
+      { label: "ChatGPT", max: 100, step: 5 },
+      { label: "Gemini", max: 100, step: 5 },
+      { label: "Claude", max: 100, step: 5 },
+      { label: "Other" }, // not editable, just the label
+    ]),
   );
 
   const country = useQuestion(
@@ -75,6 +94,7 @@ export default function App() {
       }}
     >
       <Slider question={age.question} onChange={age.setValue} />
+      <PercentageSplit question={split.question} onChange={split.setValue} />
       <Dropdown question={country.question} onChange={country.setValue} />
       <SelectableList
         question={interests.question}

@@ -1,5 +1,5 @@
-import './Question.css';
-import { SliderQuestion } from './Question';
+import "./Question.css";
+import { SliderQuestion } from "./Question";
 
 interface SliderProps {
   question: SliderQuestion;
@@ -7,13 +7,17 @@ interface SliderProps {
 }
 
 export function Slider({ question, onChange }: SliderProps) {
-  const { label, min, max, step, value, answered } = question;
+  const { label, min, max, step, value, customEnd, answered } = question;
 
   return (
-    <div className={`question ${answered ? 'question--answered' : ''}`}>
+    <div className={`question ${answered ? "question--answered" : ""}`}>
       <div className="question__label">
         <span>{label}</span>
-        {!answered && <span className="question__required" aria-label="required">*</span>}
+        {!answered && (
+          <span className="question__required" aria-label="required">
+            *
+          </span>
+        )}
       </div>
 
       <div className="question__slider-row">
@@ -30,10 +34,19 @@ export function Slider({ question, onChange }: SliderProps) {
           aria-valuemax={max}
           aria-valuenow={value ?? undefined}
         />
-        <span className="question__slider-value">{value ?? '—'}</span>
+
+        <span className="question__slider-value">
+          {value === null
+            ? "—"
+            : value === max && customEnd
+              ? customEnd
+              : value}
+        </span>
       </div>
 
-      {!answered && <span className="question__hint">Move the slider to answer</span>}
+      {!answered && (
+        <span className="question__hint">Move the slider to answer</span>
+      )}
     </div>
   );
 }

@@ -1,6 +1,7 @@
-export { Question, SliderQuestion, DropdownQuestion, SelectableListQuestion } from './Question';
-export type { Option } from './Question';
+export { Question, SliderQuestion, DropdownQuestion, SelectableListQuestion, PercentageSplitQuestion } from './Question';
+export type { Option, PercentageOption } from './Question';
 export { useQuestion, allAnswered } from './useQuestion';
 export { Slider } from './Slider';
 export { Dropdown } from './Dropdown';
 export { SelectableList } from './SelectableList';
+export { PercentageSplit } from './PercentageSplit';

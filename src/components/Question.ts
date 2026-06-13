@@ -29,9 +29,11 @@ export abstract class Question<T> {
    * Keeps the model immutable, which plays nicely with React state.
    */
   withValue(value: T): this {
-    return Object.assign(Object.create(Object.getPrototypeOf(this)), this, {
-      value,
-    });
+    return Object.assign(
+      Object.create(Object.getPrototypeOf(this)),
+      this,
+      { value },
+    );
   }
 }
 
@@ -45,20 +47,21 @@ export class SliderQuestion extends Question<number | null> {
   readonly min: number;
   readonly max: number;
   readonly step: number;
+  readonly customEnd?: string;
 
   constructor(
     id: string,
     label: string,
-    options: { min: number; max: number; step?: number; value?: number | null },
+    options: { min: number; max: number; step?: number; value?: number | null; customEnd?: string },
   ) {
     super(id, label, options.value ?? null);
     this.min = options.min;
     this.max = options.max;
     this.step = options.step ?? 1;
+    this.customEnd = options.customEnd;
   }
 
   get answered(): boolean {
-    // null means the user hasn't touched the slider yet.
     return this.value !== null;
   }
 }
@@ -72,7 +75,7 @@ export class DropdownQuestion extends Question<string | null> {
     id: string,
     label: string,
     options: Option[],
-    placeholder = "Select an option...",
+    placeholder = 'Select an option...',
     value: string | null = null,
   ) {
     super(id, label, value);
@@ -81,7 +84,54 @@ export class DropdownQuestion extends Question<string | null> {
   }
 
   get answered(): boolean {
-    return this.value !== null && this.value !== "";
+    return this.value !== null && this.value !== '';
+  }
+}
+
+/** A slider's static config, reused by PercentageSplitQuestion. */
+export interface PercentageOption {
+  label: string;
+  min?: number;
+  max?: number;
+  step?: number;
+}
+
+/**
+ * A set of sliders whose values must add up to 100%. `options` has N
+ * entries; the first N-1 are editable sliders, and the last one is the
+ * remainder (100 - sum of the others), displayed read-only.
+ */
+export class PercentageSplitQuestion extends Question<number[]> {
+  readonly options: PercentageOption[];
+  readonly addString?: String;
+
+  constructor(id: string, label: string, addString: String, options: PercentageOption[], value?: number[]) {
+    if (options.length < 2) {
+      throw new Error('PercentageSplitQuestion needs at least 2 options (1 slider + 1 remainder).');
+    }
+    const editableCount = options.length - 1;
+    super(id, label, value ?? new Array(editableCount).fill(0));
+    this.options = options;
+  }
+
+  /** Sum of the editable sliders' values. */
+  get total(): number {
+    return this.value.reduce((sum, v) => sum + v, 0);
+  }
+
+  /** What's left over for the last, non-editable option. */
+  get remainder(): number {
+    return 100 - this.total;
+  }
+
+  /** True if the editable sliders alone already exceed 100%. */
+  get hasError(): boolean {
+    return this.total > 100;
+  }
+
+  get answered(): boolean {
+    // "Answered" once every slider has moved off zero and the totals are valid.
+    return !this.hasError && this.value.every((v) => v > 0);
   }
 }
 

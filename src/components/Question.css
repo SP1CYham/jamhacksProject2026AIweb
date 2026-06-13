@@ -51,6 +51,29 @@
   color: #8a8aa3;
 }
 
+.question__error {
+  font-size: 0.85rem;
+  color: #d3455b;
+  font-weight: 500;
+}
+
+.question__total {
+  font-size: 0.85rem;
+  color: #1f2230;
+  font-weight: 500;
+}
+
+.question__slider-option-label {
+  min-width: 6rem;
+  font-size: 0.9rem;
+  color: #1f2230;
+}
+
+.question__slider-row--readonly input,
+.question__slider-row--readonly {
+  opacity: 0.85;
+}
+
 /* Dropdown */
 .question__select {
   padding: 0.5rem 0.75rem;
