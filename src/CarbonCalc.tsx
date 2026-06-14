@@ -50,8 +50,10 @@ export function kWattHours(
     365
   );
 }
-export function CO2Num(
-  hours: number,
-) {
-  
+export function CO2Num(energy: number) {
+  return (energy * 35) / 1000;
+}
+
+export function WaterNum(energy: number) {
+  return energy * 1.05;
 }
