@@ -69,17 +69,17 @@ export default function App() {
       [
         {
           label: "Coding/Problem Solving",
-          color: "#4c6ef5",
+          color: "#f1e579",
           icon: "yelloe.png",
         },
-        { label: "Writing", color: "#f59f00", icon: "orangelight.png" },
-        { label: "Research", color: "#e64980", icon: "orang.png" },
+        { label: "Writing", color: "#ee9c37", icon: "orangelight.png" },
+        { label: "Research", color: "#d46948", icon: "orang.png" },
         {
           label: "Everyday Questions/Tasks",
-          color: "#addeef",
+          color: "#a13838",
           icon: "red.png",
         },
-        { label: "Other", color: "#37b24d", icon: "💰" },
+        { label: "Other", color: "#450d0d", icon: "darkassred.png" },
       ],
       [20, 20, 20, 20, 20],
     ),
@@ -105,8 +105,8 @@ export default function App() {
       "What do you typically use AI to generate?",
       "%",
       [
-        { label: "Text", color: "#4c6ef5", icon: "🏠" },
-        { label: "Images", color: "#f59f00", icon: "🍔" },
+        { label: "Text", color: "#f1e579", icon: "writing.png" },
+        { label: "Images", color: "#ee9c37", icon: "images.png" },
       ],
       [50, 50],
     ),
