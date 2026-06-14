@@ -221,7 +221,7 @@ export default function App() {
       <div className="parallax-bg" />
       <div
         style={{
-          maxWidth: 950,
+          maxWidth: 480,
           margin: "2rem auto",
           display: "flex",
           flexDirection: "column",
