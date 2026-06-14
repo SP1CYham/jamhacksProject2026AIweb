@@ -308,8 +308,14 @@ body {
 
 .answer-card {
   text-align: center;
-  margin-top: 50%;
+  margin-top: 30%;
  font-family: 'Sour Gummy', sans-serif;
+ color: #fff;
+ text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
 }
 
 .continue-btn { 
@@ -410,4 +416,5 @@ transform:scale(1);
 
 .ai-usage-effect {
   font-family: 'Sour Gummy', sans-serif;
+  font-size: 1.5rem;
 }

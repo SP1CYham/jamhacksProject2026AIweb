@@ -284,39 +284,36 @@ export default function App() {
 
         {submitted && (
           <>
-            <div className="answer-card" style={{ marginBottom: "200px" }}>
+            <div className="answer-card" style={{ textAlign: "center", marginBottom: "300px" }}>
               <h3 style={{ marginBottom: "-5px", fontSize: "50px" }}>
-                You Saved:
+                You Saved
               </h3>
               <h1 style={{ marginBottom: "-5px", fontSize: "80px" }}>
-                {savedCount} hours!
+                {savedCount} hours
               </h1>
-              <h4>in the last month</h4>
+              <h4>in the last month!</h4>
             </div>
 
             <div
               className="answer-card"
-              style={{ textAlign: "center", marginBottom: "-220px" }}
+              style={{ textAlign: "center", marginBottom: "-100px", fontSize: "50px" }}
             >
               <h1
                 style={{
                   transition: "opacity 0.4s ease",
                 }}
               >
-                But what did it cost?
+                But what's the REAL cost of that time saved?
               </h1>
-              <strong>AI is reshaping how your brain works,</strong>
-              <div>
-                <strong>whether you realize it or not.</strong>
-              </div>
+              <strong style = {{ fontSize: "20px" }}>AI is reshaping how your brain works, whether you realize it or not.</strong>
             </div>
             <div
               className="answer-card"
-              style={{ textAlign: "left", marginBottom: "-220px" }}
+              style={{ textAlign: "left", marginBottom: "300px" }}
             >
               <>
                 {userType() == 0 && (
-                  <div className="ai-usage-effect">
+                  <div className="ai-usage-effect" style = {{ marginTop: "400px" }}>
                     You use AI occasionally, and that probably feels harmless.
                     <br></br>
                     <br></br>
@@ -352,7 +349,7 @@ export default function App() {
                   </div>
                 )}
                 {userType() == 2 && (
-                  <div>
+                  <div className="ai-usage-effect" style = {{ marginTop: "300px" }}>
                     At your usage level, you've already crossed the line from
                     convenience into dependency.
                     <br></br>
@@ -375,7 +372,7 @@ export default function App() {
                 )}
               </>
             </div>
-            <div className="answer-card" style={{ textAlign: "left" }}>
+            <div className="ai-usage-effect" style={{ textAlign: "left" }}>
               <h1
                 style={{
                   textAlign: "center",
