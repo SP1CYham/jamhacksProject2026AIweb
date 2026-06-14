@@ -317,10 +317,10 @@ export default function App() {
               <h4>in the last month!</h4>
             </div>
             <div
-              className="answer-card"
+              className="answer-card isShadow"
               style={{
                 textAlign: "center",
-                marginBottom: "-220px",
+                marginBottom: "-40px",
                 fontSize: "50px",
               }}
             >
@@ -328,18 +328,25 @@ export default function App() {
                 style={{
                   transition: "opacity 0.4s ease",
                   fontSize: "40px",
+                  marginBottom: "30px",
+                  marginTop: "30px",
                 }}
               >
-                But what's the REAL cost of that time saved?
+                But what's the REAL<br></br>
+                cost of that time saved?
               </h1>
-              <strong style={{ fontSize: "30px" }}>
-                AI is reshaping how your brain works, whether you realize it or
-                not.
-              </strong>
-              <div id="trigger-point"></div>
             </div>
-            <div
+            <strong
               className="answer-card"
+              style={{ fontSize: "30px", marginTop: "0px" }}
+            >
+              AI is reshaping how your brain works, whether you realize it or
+              not.
+            </strong>
+            <div id="trigger-point"></div>
+
+            <div
+              className="answer-card isShadow"
               style={{ textAlign: "left", marginBottom: "-200px" }}
             >
               <>
