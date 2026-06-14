@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./components/Question.css";
 
-
 import {
   SliderQuestion,
   PercentageScrollbarQuestion,
@@ -12,7 +11,7 @@ import { Slider } from "./components/Slider";
 import { PercentageScrollbar } from "./components/PercentageScrollbar";
 import { useQuestion, allAnswered } from "./components/useQuestion";
 
-import { Q1, Q3, kWattHours } from "./CarbonCalc";
+import { CO2Num, Q1, Q3, WaterNum, kWattHours } from "./CarbonCalc";
 
 export default function App() {
   const prompts = useQuestion(
@@ -141,19 +140,13 @@ export default function App() {
   }
 
   function kiloWattHrs() {
-    if (
-      typeof q1 !== "number" ||
-      typeof convoLength.question.value !== "number"
-    )
-      return null;
-    else
-      return kWattHours(
-        q1,
-        models.question.value,
-        usage.question.value,
-        convoLength.question.value,
-        generation.question.value[1],
-      );
+    return kWattHours(
+      q1 == null ? 0 : q1,
+      models.question.value,
+      usage.question.value,
+      convoLength.question.value == null ? 0 : convoLength.question.value,
+      generation.question.value[1],
+    );
   }
 
   return (
@@ -264,12 +257,12 @@ export default function App() {
                     At the rate you use AI, the research gets hard to ignore.
                     Studies show a correlation of r = -0.68 between AI usage and
                     cognitive decline. Memory, attention, critical thinking,
-                    decision-making. Not one or two of these. All of them,
-                    declining together, in people using AI at the same frequency
-                    you do. You may have already noticed something feels off.
-                    That's not a coincidence. AI users at your level report a
-                    17% decrease in knowledge retention. Information goes in,
-                    but it doesn't stick the way it once did.
+                    decision-making, all of these vital functionalities are
+                    shown to be declining in people using AI at the same
+                    frequency you do. You may have already noticed something
+                    feels off. AI users at your level report a 17% decrease in
+                    knowledge retention. You may have a harder time focusing and
+                    remembering information.
                     <br></br>
                     <br></br>
                     You are at the stage where the effects of AI stop being
@@ -278,7 +271,7 @@ export default function App() {
                 )}
                 {userType() == 2 && (
                   <div>
-                    At the rate you use, AI dependency isn't a risk. It's likely
+                    At the rate you use AI, dependency isn't a risk. It's likely
                     already present. Research shows a strong negative
                     correlation between AI usage and cognitive decline, meaning
                     the heavier the use, the more significant the effects.
@@ -288,8 +281,7 @@ export default function App() {
                     think on your own, with users who use similar amounts of AI
                     as you reporting significant cognitive fatigue and burnout.
                     That dependency has been linked to broader mental health
-                    decline. Not just foggy thinking. Your overall wellbeing is
-                    at risk.
+                    decline. Your overall wellbeing is at risk.
                     <br></br>
                     <br></br>
                     The tool you're using to save time may be costing you
@@ -297,9 +289,32 @@ export default function App() {
                   </div>
                 )}
               </>
+              <div>But what about the environmental impacts of using AI?</div>
               <div>
-                you used {kiloWattHrs()}
-                many kilo watt hours
+                Well, as it turns out, your usage of AI may use less natural
+                resources than you may think.
+              </div>
+              <div>
+                Based on your results you used about{" "}
+                {Math.round(kiloWattHrs() * 100) / 100} kWh of power to generate
+                prompts over an entire year. That’s the equivalent of running a
+                standard fridge for only{" "}
+                {Math.round((kiloWattHrs() * 100) / 1.99) / 100} days”
+              </div>
+              <div>
+                You also used the equivalent of{" "}
+                {Math.round(CO2Num(kiloWattHrs()) * 100) / 100} kilograms of CO2
+                to power your AI assistants, that is equivalent to one{" "}
+                {Math.round((CO2Num(kiloWattHrs()) / 0.15) * 100) / 100} km car
+                ride
+              </div>
+              <div>
+                But what about your water usage? Well based on your results you
+                have used {Math.round(WaterNum(kiloWattHrs()) * 100) / 100}{" "}
+                Litres of water in the past year, which accounts for both water
+                usage for energy production and water used to cool data centers.
+                Consider that making a single single beef burger patty requires
+                around 2,400 litres of water to produce.
               </div>
             </div>
           </>
