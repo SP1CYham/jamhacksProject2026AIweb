@@ -332,11 +332,16 @@ transform:scale(1);
 }
 
 .custom-player {
-  width: 100%;
-  max-width: 800px; 
-  height: auto;
-  justify-content: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  filter:drop-shadow(4px 4px 4px rgba(43, 42, 116, 0.521));
+
 }
 
 .landing__title {
