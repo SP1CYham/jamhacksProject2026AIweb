@@ -4,16 +4,12 @@ import "./components/Question.css";
 
 import {
   SliderQuestion,
-  DropdownQuestion,
-  SelectableListQuestion,
   PercentageScrollbarQuestion,
 } from "./components/Question";
 
 //tsx
 import { Slider } from "./components/Slider";
 import { PercentageScrollbar } from "./components/PercentageScrollbar";
-import { Dropdown } from "./components/Dropdown";
-import { SelectableList } from "./components/SelectableList";
 import { useQuestion, allAnswered } from "./components/useQuestion";
 
 import { Q1, Q3, kWattHours } from "./CarbonCalc";
