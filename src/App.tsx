@@ -162,14 +162,12 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className="custom-player">
+      <video className="title_page" autoPlay muted loop>
+        <source src="/title_page.webm" type="video/mp4" />
+      </video>
       <div className="parallax-bg" />
       <img src="/clock.png" alt="mascot" className="mascot-img" />
-       <div className="landing">
-      <h1 className="landing__title">How much time do</h1>
-      <h2 className="landing__title landing__title--sub">you save with AI?</h2>
-      
-    </div>
       <div
         style={{
           maxWidth: 480,
@@ -312,6 +310,6 @@ export default function App() {
           </>
         )}
       </div>
-    </>
+    </div>
   );
 }
