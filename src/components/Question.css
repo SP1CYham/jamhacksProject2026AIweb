@@ -46,30 +46,8 @@ body::before {
   animation: fadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.mascot-img {
 
-  top: 10vh;
-  right: 5vw;
-  width: 380px;
-  height: auto;
-  transform-origin:10%;
-  animation: mascot-scroll linear both;
-  animation-timeline: scroll();
-  animation-range: 0% 40%;
-  pointer-events: none;
-  z-index: -1;
-}
 
-@keyframes mascot-scroll {
-  from {
-    transform: translateX(70vw) scale(1.2);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(-15vw) scale(0.6);
-    opacity: 0.7;
-  }
-}
 
 .question:nth-child(1) { animation-delay: 0.08s; }
 .question:nth-child(2) { animation-delay: 0.22s; }
