@@ -405,7 +405,7 @@ transform:scale(1);
   position: relative;
   filter: drop-shadow(4px 4px 4px rgba(43, 42, 116, 0.521));
   animation: fadeIn 1s ease forwards;
-  z-index: 2;
+  z-index: 100;
   order: 0;
 }
 .landing__title {
