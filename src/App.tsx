@@ -252,8 +252,8 @@ export default function App() {
               >
                 but what did it cost?
               </h1>
-              AI is showing a significant impact on how your brain works, quietly and consistently.
-              The research isn't speculative anymore.
+              
+              Your dependency on AI is showing a significant impact on how your brain WORKS! 
             </div>
             <div style={{ textAlign: "left" }}>
               <>
