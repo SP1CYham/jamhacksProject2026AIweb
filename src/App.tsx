@@ -149,7 +149,6 @@ export default function App() {
       top: 0,
       behavior: "smooth", // Enables smooth scrolling
     });
-    setActiveIndex(1);
   }
 
   const videos = ["bg1.mp4", "bg2.mp4"];
@@ -210,6 +209,18 @@ export default function App() {
       origin: { y: 1 },
     });
   }, [finished]);
+
+  const target = document.querySelector("#trigger-point");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setActiveIndex(1); // called when element enters the viewport
+      }
+    });
+  });
+  if (target) {
+    observer.observe(target);
+  }
 
   return (
     <div className="custom-player">
@@ -293,7 +304,7 @@ export default function App() {
               </h1>
               <h4>in the last month</h4>
             </div>
-
+            <div id="trigger-point"></div>
             <div
               className="answer-card"
               style={{ textAlign: "center", marginBottom: "-220px" }}
@@ -386,7 +397,7 @@ export default function App() {
                 But what about the environmental impacts of using AI?
               </h1>
               <div>
-                Well, as it turns out, your usage of AI may use less natural
+                It may be surprising but your usage of AI uses less natural
                 resources than you may think.
               </div>
               <div>
