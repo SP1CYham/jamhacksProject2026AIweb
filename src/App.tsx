@@ -233,7 +233,7 @@ export default function App() {
               >
                 but what did it cost?
               </h1>
-              AI is reshaping how your brain works, quietly and consistently.
+              AI is showing a significant impact on how your brain works, quietly and consistently.
               The research isn't speculative anymore.
             </div>
             <div style={{ textAlign: "left" }}>
