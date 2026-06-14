@@ -162,9 +162,11 @@ export default function App() {
 
   return (
     <div className="custom-player">
-      <video className="title_page" autoPlay muted loop>
-        <source src="/title_page.webm" type="video/mp4" />
-      </video>
+      {!submitted && (
+        <video className="title_page" autoPlay muted loop>
+          <source src="/title_page.webm" type="video/mp4" />
+        </video>
+      )}
       <div className="parallax-bg" />
       <div
         style={{
@@ -252,8 +254,8 @@ export default function App() {
               >
                 but what did it cost?
               </h1>
-              
-              Your dependency on AI is showing a significant impact on how your brain WORKS! 
+              Your dependency on AI is showing a significant impact on how your
+              brain WORKS!
             </div>
             <div style={{ textAlign: "left" }}>
               <>
