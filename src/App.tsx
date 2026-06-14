@@ -67,10 +67,18 @@ export default function App() {
       "What do you commonly use AI for?",
       "%",
       [
-        { label: "Coding/Problem Solving", color: "#4c6ef5", icon: "yelloe.png" },
+        {
+          label: "Coding/Problem Solving",
+          color: "#4c6ef5",
+          icon: "yelloe.png",
+        },
         { label: "Writing", color: "#f59f00", icon: "orangelight.png" },
         { label: "Research", color: "#e64980", icon: "orang.png" },
-        { label: "Everyday Questions/Tasks", color: "#addeef", icon: "red.png" },
+        {
+          label: "Everyday Questions/Tasks",
+          color: "#addeef",
+          icon: "red.png",
+        },
         { label: "Other", color: "#37b24d", icon: "💰" },
       ],
       [20, 20, 20, 20, 20],
@@ -314,6 +322,29 @@ export default function App() {
                 usage for energy production and water used to cool data centers.
                 Consider that making a single single beef burger patty requires
                 around 2,400 litres of water to produce.
+              </div>
+              <div>
+                This isn’t to say that your usage of AI will not have an impact
+                on communities. One of the largest concerns with the growth of
+                AI is the construction of data centers, which will actually
+                siphon significant resources from local communities, placing
+                significant strain on electricity and water systems.
+              </div>
+              <div>
+                Based on your location in Ontario, the current load of data
+                centers already accounts for approximately 30 per cent of
+                Ontario's peak demand for energy. In the next 10 years, Ontario
+                expects 16 more data centres to connect to its grid, resulting
+                in an expected change of 75 percent in 2025 up from just 60
+                percent in 2024.
+              </div>
+              <div>
+                One data centre can use as much electricity as 100,000
+                households, according to the International Energy Agency. This
+                is why the introduction of data centres into communities like
+                yours can significantly change your local community, driving up
+                energy costs and diverting a significant amount of local usable
+                water.
               </div>
             </div>
           </>
