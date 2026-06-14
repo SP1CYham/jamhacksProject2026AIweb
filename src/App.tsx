@@ -67,10 +67,10 @@ export default function App() {
       "What do you commonly use AI for?",
       "%",
       [
-        { label: "Coding/Problem Solving", color: "#4c6ef5", icon: "🏠" },
-        { label: "Writing", color: "#f59f00", icon: "🍔" },
-        { label: "Research", color: "#e64980", icon: "🚗" },
-        { label: "Everyday Questions/Tasks", color: "#addeef", icon: "🚗" },
+        { label: "Coding/Problem Solving", color: "#4c6ef5", icon: "yelloe.png" },
+        { label: "Writing", color: "#f59f00", icon: "orangelight.png" },
+        { label: "Research", color: "#e64980", icon: "orang.png" },
+        { label: "Everyday Questions/Tasks", color: "#addeef", icon: "red.png" },
         { label: "Other", color: "#37b24d", icon: "💰" },
       ],
       [20, 20, 20, 20, 20],
@@ -135,7 +135,7 @@ export default function App() {
     setSubmitted(true);
     window.scrollTo({
       top: 0,
-      behavior: "auto", // Enables smooth scrolling
+      behavior: "smooth", // Enables smooth scrolling
     });
   }
 
@@ -155,7 +155,6 @@ export default function App() {
         <source src="/title_page.webm" type="video/mp4" />
       </video>
       <div className="parallax-bg" />
-      <img src="/clock.png" alt="mascot" className="mascot-img" />
       <div
         style={{
           maxWidth: 480,

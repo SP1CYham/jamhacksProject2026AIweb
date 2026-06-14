@@ -1,19 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
 
 body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: -50% 0;        /* extra height so it doesn't run out of image */
+  z-index: -1;
   background-image: url('skyday.png');
   background-size: cover;
   background-position: center;
-  transform: scale(1.1);
-  z-index: -2;
   animation: parallax-bg linear both;
   animation-timeline: scroll(root);
-  animation-range:-10% 30%;
+  animation-range: 0% 100%;
 }
 
 @keyframes parallax-bg {
-  from { transform: scale(1) translateY(0); }
-  to   { transform: scale(1) translateY(-10%); }
+  from { transform: translateY(25%); }
+  to   { transform: translateY(0%); } /* half of the 50% extra space = 0.5x ratio */
 }
 
 
@@ -39,30 +46,8 @@ body {
   animation: fadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.mascot-img {
 
-  top: 10vh;
-  right: 5vw;
-  width: 380px;
-  height: auto;
-  transform-origin:10%;
-  animation: mascot-scroll linear both;
-  animation-timeline: scroll();
-  animation-range: 0% 40%;
-  pointer-events: none;
-  z-index: -1;
-}
 
-@keyframes mascot-scroll {
-  from {
-    transform: translateX(70vw) scale(1.2);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(-15vw) scale(0.6);
-    opacity: 0.7;
-  }
-}
 
 .question:nth-child(1) { animation-delay: 0.08s; }
 .question:nth-child(2) { animation-delay: 0.22s; }
@@ -331,14 +316,23 @@ transform:scale(1);
   z-index: 1;
 }
 
-.custom-player {
-  width: 100%;
-  max-width: 800px; 
-  height: auto;
-  justify-content: center;
-  align-items: center;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
+.custom-player {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  filter: drop-shadow(4px 4px 4px rgba(43, 42, 116, 0.521));
+  animation: fadeIn 1s ease forwards;
+}
 .landing__title {
   font-family: 'Instrument Serif', serif;
   font-size: clamp(2rem, 8vw, 4rem);
