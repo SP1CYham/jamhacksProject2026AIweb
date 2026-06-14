@@ -11,7 +11,7 @@ import { Slider } from "./components/Slider";
 import { PercentageScrollbar } from "./components/PercentageScrollbar";
 import { useQuestion, allAnswered } from "./components/useQuestion";
 
-import { Q1, Q3, kWattHours } from "./CarbonCalc";
+import { CO2Num, Q1, Q3, WaterNum, kWattHours } from "./CarbonCalc";
 
 export default function App() {
   const prompts = useQuestion(
@@ -67,10 +67,18 @@ export default function App() {
       "What do you commonly use AI for?",
       "%",
       [
-        { label: "Coding/Problem Solving", color: "#4c6ef5", icon: "yelloe.png" },
+        {
+          label: "Coding/Problem Solving",
+          color: "#4c6ef5",
+          icon: "yelloe.png",
+        },
         { label: "Writing", color: "#f59f00", icon: "orangelight.png" },
         { label: "Research", color: "#e64980", icon: "orang.png" },
-        { label: "Everyday Questions/Tasks", color: "#addeef", icon: "red.png" },
+        {
+          label: "Everyday Questions/Tasks",
+          color: "#addeef",
+          icon: "red.png",
+        },
         { label: "Other", color: "#37b24d", icon: "💰" },
       ],
       [20, 20, 20, 20, 20],
@@ -139,20 +147,17 @@ export default function App() {
     });
   }
 
+  const videos = ["bg1.mp4", "nightsky.mp4", "sunset.mp4"];
+  const [activeIndex, setActiveIndex] = useState(0);
+
   function kiloWattHrs() {
-    if (
-      typeof q1 !== "number" ||
-      typeof convoLength.question.value !== "number"
-    )
-      return null;
-    else
-      return kWattHours(
-        q1,
-        models.question.value,
-        usage.question.value,
-        convoLength.question.value,
-        generation.question.value[1],
-      );
+    return kWattHours(
+      q1 == null ? 0 : q1,
+      models.question.value,
+      usage.question.value,
+      convoLength.question.value == null ? 0 : convoLength.question.value,
+      generation.question.value[1],
+    );
   }
 
   return (
@@ -172,6 +177,20 @@ export default function App() {
           zIndex: 1,
         }}
       >
+        <div className="bg-video-container">
+          {videos.map((src, i) => (
+            <video
+              key={src}
+              className={`bg-video ${i === activeIndex ? "bg-video--active" : ""}`}
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src={src} type="video/mp4" />
+            </video>
+          ))}
+        </div>
         {!submitted && (
           <>
             <Slider question={prompts.question} onChange={prompts.setValue} />
@@ -233,8 +252,8 @@ export default function App() {
               >
                 but what did it cost?
               </h1>
-              AI is reshaping how your brain works, quietly and consistently.
-              The research isn't speculative anymore.
+              
+              Your dependency on AI is showing a significant impact on how your brain WORKS! 
             </div>
             <div className = "ai-usage-effect" style={{ textAlign: "left"}}>
               <>
@@ -262,12 +281,12 @@ export default function App() {
                     At the rate you use AI, the research gets hard to ignore.
                     Studies show a correlation of r = -0.68 between AI usage and
                     cognitive decline. Memory, attention, critical thinking,
-                    decision-making. Not one or two of these. All of them,
-                    declining together, in people using AI at the same frequency
-                    you do. You may have already noticed something feels off.
-                    That's not a coincidence. AI users at your level report a
-                    17% decrease in knowledge retention. Information goes in,
-                    but it doesn't stick the way it once did.
+                    decision-making, all of these vital functionalities are
+                    shown to be declining in people using AI at the same
+                    frequency you do. You may have already noticed something
+                    feels off. AI users at your level report a 17% decrease in
+                    knowledge retention. You may have a harder time focusing and
+                    remembering information.
                     <br></br>
                     <br></br>
                     You are at the stage where the effects of AI stop being
@@ -286,8 +305,7 @@ export default function App() {
                     think on your own, with users who use similar amounts of AI
                     as you reporting significant cognitive fatigue and burnout.
                     That dependency has been linked to broader mental health
-                    decline. Not just foggy thinking. Your overall wellbeing is
-                    at risk.
+                    decline. Your overall wellbeing is at risk.
                     <br></br>
                     <br></br>
                     The tool you're using to save time may be costing you
@@ -295,10 +313,9 @@ export default function App() {
                   </div>
                 )}
               </>
-              <div className = "ai-usage-effect" style={{textAlign: "center", marginTop: "50px", fontSize: "20px"}}>
-                you used
-                <line style = {{ fontWeight: "bold", fontSize: "30px", margin: "0 0.5rem" }}>{ kiloWattHrs() }</line>
-                kWh
+              <div>
+                you used {kiloWattHrs()}
+                many kilo watt hours
               </div>
             </div>
           </>
