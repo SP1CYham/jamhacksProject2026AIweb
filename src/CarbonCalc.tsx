@@ -50,3 +50,8 @@ export function kWattHours(
     365
   );
 }
+export function CO2Num(
+  hours: number,
+) {
+  
+}
