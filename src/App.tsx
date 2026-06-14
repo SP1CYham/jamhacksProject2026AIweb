@@ -162,7 +162,6 @@ export default function App() {
         <source src="/title_page.webm" type="video/mp4" />
       </video>
       <div className="parallax-bg" />
-      <img src="/clock.png" alt="mascot" className="mascot-img" />
       <div
         style={{
           maxWidth: 480,
