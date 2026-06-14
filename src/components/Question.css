@@ -150,8 +150,6 @@ body {
 
 input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 2rem;
-  height: 2rem;
   border: none;
   background: none;
   box-shadow: none;
@@ -160,7 +158,7 @@ input[type='range']::-webkit-slider-thumb {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 input[type='range']::-webkit-slider-thumb:hover {
@@ -304,7 +302,7 @@ input[type='range']::-webkit-slider-thumb:active {
   cursor: grab;
   touch-action: none;
   box-shadow: 0 1px 4px rgba(60, 122, 181, 0.18);
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .percentage-scrollbar__handle:hover {
