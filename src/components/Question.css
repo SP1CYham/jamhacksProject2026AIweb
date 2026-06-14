@@ -320,6 +320,11 @@ body {
      1px -1px 0 #000,
     -1px  1px 0 #000,
      1px  1px 0 #000;
+  
+}
+
+.isShadow {
+  background-image: radial-gradient(ellipse at center, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.08) 50%, transparent 75%);
 }
 
 .continue-btn { 

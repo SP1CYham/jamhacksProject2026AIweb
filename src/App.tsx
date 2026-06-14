@@ -210,11 +210,13 @@ export default function App() {
     });
   }, [finished]);
 
+  const [transitioned, setTransitioned] = useState(false);
   const target = document.querySelector("#trigger-point");
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         setActiveIndex(1); // called when element enters the viewport
+        setTransitioned(true);
       }
     });
   });
@@ -303,6 +305,7 @@ export default function App() {
                 You Saved
               </h3>
               <h1
+                className={transitioned ? "isShadow" : ""}
                 style={{
                   marginBottom: "-5px",
                   fontSize: "80px",
@@ -337,7 +340,7 @@ export default function App() {
             </div>
             <div
               className="answer-card"
-              style={{ textAlign: "left", marginBottom: "300px" }}
+              style={{ textAlign: "left", marginBottom: "-200px" }}
             >
               <>
                 <div
@@ -422,41 +425,74 @@ export default function App() {
                 </div>
               </>
             </div>
-            <div className="question" style={{ textAlign: "left" }}>
+            <div className="answer-card" style={{ textAlign: "left" }}>
               <h1
                 style={{
                   textAlign: "center",
-                  transition: "opacity 0.4s ease",
+                  fontSize: "40px",
                   marginBottom: "40px",
                 }}
               >
                 But what about the environmental impacts of using AI?
+                <div
+                  style={{
+                    fontSize: "20px",
+                  }}
+                >
+                  It may be surprising but your usage of AI uses less natural
+                  resources than you may think.
+                </div>
               </h1>
-              <div>
-                It may be surprising but your usage of AI uses less natural
-                resources than you may think.
-              </div>
-              <div>
-                Based on your results you used about{" "}
-                {Math.round(kiloWattHrs() * 100) / 100} kWh of power to generate
-                prompts over an entire year. That’s the equivalent of running a
-                standard fridge for only{" "}
-                {Math.round((kiloWattHrs() * 100) / 1.99) / 100} days.
-              </div>
-              <div>
-                You also used the equivalent of{" "}
-                {Math.round(CO2Num(kiloWattHrs()) * 100) / 100} kilograms of CO2
-                to power your AI assistants, that is equivalent to one{" "}
-                {Math.round((CO2Num(kiloWattHrs()) / 0.15) * 100) / 100} km car
-                ride.
-              </div>
-              <div>
-                But what about your water usage? Based on your results you have
-                used {Math.round(WaterNum(kiloWattHrs()) * 100) / 100} Litres of
-                water in the past year, which accounts for both water usage for
-                energy production and water used to cool data centers. Consider
-                that making a single single beef burger patty requires around
-                2,400 litres of water to produce.
+
+              <div>Based on your results you used about:</div>
+
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                  gap: "16px",
+                }}
+              >
+                <div>
+                  <div
+                    style={{
+                      fontSize: "40px",
+                    }}
+                  >
+                    {Math.round(kiloWattHrs() * 100) / 100} kWh
+                  </div>
+                  <div>
+                    That’s the equivalent of running a standard fridge for only{" "}
+                    {Math.round((kiloWattHrs() * 100) / 1.99) / 100} days.
+                  </div>
+                </div>
+                <div>
+                  <div
+                    style={{
+                      fontSize: "40px",
+                    }}
+                  >
+                    {Math.round(CO2Num(kiloWattHrs()) * 100) / 100} kg of CO2
+                  </div>
+                  <div>
+                    That is equivalent to one{" "}
+                    {Math.round((CO2Num(kiloWattHrs()) / 0.15) * 100) / 100} km
+                    car ride.
+                  </div>
+                </div>
+                <div>
+                  <div
+                    style={{
+                      fontSize: "40px",
+                    }}
+                  >
+                    {Math.round(WaterNum(kiloWattHrs()) * 100) / 100} L of Water
+                  </div>
+                  <div>
+                    That’s the equivalent of running a standard fridge for only{" "}
+                    {Math.round((kiloWattHrs() * 100) / 1.99) / 100} days.
+                  </div>
+                </div>
               </div>
               <div>
                 This isn’t to say that your usage of AI will not have an impact
