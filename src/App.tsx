@@ -252,8 +252,8 @@ export default function App() {
               >
                 but what did it cost?
               </h1>
-              
-              Your dependency on AI is showing a significant impact on how your brain WORKS! 
+              Your dependency on AI is showing a significant impact on how your
+              brain WORKS!
             </div>
             <div style={{ textAlign: "left" }}>
               <>
@@ -323,14 +323,14 @@ export default function App() {
                 {Math.round(kiloWattHrs() * 100) / 100} kWh of power to generate
                 prompts over an entire year. That’s the equivalent of running a
                 standard fridge for only{" "}
-                {Math.round((kiloWattHrs() * 100) / 1.99) / 100} days”
+                {Math.round((kiloWattHrs() * 100) / 1.99) / 100} days.
               </div>
               <div>
                 You also used the equivalent of{" "}
                 {Math.round(CO2Num(kiloWattHrs()) * 100) / 100} kilograms of CO2
                 to power your AI assistants, that is equivalent to one{" "}
                 {Math.round((CO2Num(kiloWattHrs()) / 0.15) * 100) / 100} km car
-                ride
+                ride.
               </div>
               <div>
                 But what about your water usage? Well based on your results you
