@@ -162,9 +162,11 @@ export default function App() {
 
   return (
     <div className="custom-player">
-      <video className="title_page" autoPlay muted loop>
-        <source src="/title_page.webm" type="video/mp4" />
-      </video>
+      {!submitted && (
+        <video className="title_page" autoPlay muted loop>
+          <source src="/title_page.webm" type="video/mp4" />
+        </video>
+      )}
       <div className="parallax-bg" />
       <div
         style={{
@@ -252,8 +254,8 @@ export default function App() {
               >
                 but what did it cost?
               </h1>
-              
-              Your dependency on AI is showing a significant impact on how your brain WORKS! 
+              Your dependency on AI is showing a significant impact on how your
+              brain WORKS!
             </div>
             <div className = "ai-usage-effect" style={{ textAlign: "left"}}>
               <>
@@ -314,8 +316,53 @@ export default function App() {
                 )}
               </>
               <div>
-                you used {kiloWattHrs()}
-                many kilo watt hours
+                Well, as it turns out, your usage of AI may use less natural
+                resources than you may think.
+              </div>
+              <div>
+                Based on your results you used about{" "}
+                {Math.round(kiloWattHrs() * 100) / 100} kWh of power to generate
+                prompts over an entire year. That’s the equivalent of running a
+                standard fridge for only{" "}
+                {Math.round((kiloWattHrs() * 100) / 1.99) / 100} days.
+              </div>
+              <div>
+                You also used the equivalent of{" "}
+                {Math.round(CO2Num(kiloWattHrs()) * 100) / 100} kilograms of CO2
+                to power your AI assistants, that is equivalent to one{" "}
+                {Math.round((CO2Num(kiloWattHrs()) / 0.15) * 100) / 100} km car
+                ride.
+              </div>
+              <div>
+                But what about your water usage? Well based on your results you
+                have used {Math.round(WaterNum(kiloWattHrs()) * 100) / 100}{" "}
+                Litres of water in the past year, which accounts for both water
+                usage for energy production and water used to cool data centers.
+                Consider that making a single single beef burger patty requires
+                around 2,400 litres of water to produce.
+              </div>
+              <div>
+                This isn’t to say that your usage of AI will not have an impact
+                on communities. One of the largest concerns with the growth of
+                AI is the construction of data centers, which will actually
+                siphon significant resources from local communities, placing
+                significant strain on electricity and water systems.
+              </div>
+              <div>
+                Based on your location in Ontario, the current load of data
+                centers already accounts for approximately 30 per cent of
+                Ontario's peak demand for energy. In the next 10 years, Ontario
+                expects 16 more data centres to connect to its grid, resulting
+                in an expected change of 75 percent in 2025 up from just 60
+                percent in 2024.
+              </div>
+              <div>
+                One data centre can use as much electricity as 100,000
+                households, according to the International Energy Agency. This
+                is why the introduction of data centres into communities like
+                yours can significantly change your local community, driving up
+                energy costs and diverting a significant amount of local usable
+                water.
               </div>
             </div>
           </>
