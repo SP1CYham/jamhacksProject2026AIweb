@@ -404,12 +404,12 @@ export default function App() {
                 ride.
               </div>
               <div>
-                But what about your water usage? Well based on your results you
-                have used {Math.round(WaterNum(kiloWattHrs()) * 100) / 100}{" "}
-                Litres of water in the past year, which accounts for both water
-                usage for energy production and water used to cool data centers.
-                Consider that making a single single beef burger patty requires
-                around 2,400 litres of water to produce.
+                But what about your water usage? Based on your results you have
+                used {Math.round(WaterNum(kiloWattHrs()) * 100) / 100} Litres of
+                water in the past year, which accounts for both water usage for
+                energy production and water used to cool data centers. Consider
+                that making a single single beef burger patty requires around
+                2,400 litres of water to produce.
               </div>
               <div>
                 This isn’t to say that your usage of AI will not have an impact
