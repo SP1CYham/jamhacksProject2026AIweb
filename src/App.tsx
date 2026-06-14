@@ -232,7 +232,7 @@ export default function App() {
       <div className="parallax-bg" />
       <div
         style={{
-          maxWidth: 480,
+          maxWidth: 950,
           margin: "2rem auto",
           display: "flex",
           flexDirection: "column",
@@ -295,7 +295,10 @@ export default function App() {
 
         {submitted && (
           <>
-            <div className="answer-card" style={{ textAlign: "center", marginBottom: "300px" }}>
+            <div
+              className="answer-card"
+              style={{ textAlign: "center", marginBottom: "300px" }}
+            >
               <h3 style={{ marginBottom: "-5px", fontSize: "50px" }}>
                 You Saved
               </h3>
@@ -304,85 +307,123 @@ export default function App() {
               </h1>
               <h4>in the last month!</h4>
             </div>
-            <div id="trigger-point"></div>
             <div
               className="answer-card"
-              style={{ textAlign: "center", marginBottom: "-100px", fontSize: "50px" }}
+              style={{
+                textAlign: "center",
+                marginBottom: "-100px",
+                fontSize: "50px",
+              }}
             >
               <h1
                 style={{
                   transition: "opacity 0.4s ease",
+                  fontSize: "40px",
                 }}
               >
                 But what's the REAL cost of that time saved?
               </h1>
-              <strong style = {{ fontSize: "20px" }}>AI is reshaping how your brain works, whether you realize it or not.</strong>
+              <div id="trigger-point"></div>
+              <div style={{ fontSize: "30px" }}>
+                <strong>
+                  AI is reshaping how your brain works, whether you realize it
+                  or not.
+                </strong>
+              </div>
             </div>
             <div
-              className="answer-card"
-              style={{ textAlign: "left", marginBottom: "300px" }}
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "40px",
+                marginTop: "-30px",
+              }}
             >
-              <>
-                {userType() == 0 && (
-                  <div className="ai-usage-effect" style = {{ marginTop: "400px" }}>
-                    You use AI occasionally, and that probably feels harmless.
-                    <br></br>
-                    <br></br>
-                    But even a single AI-assisted task produces measurably
-                    reduced neural connectivity compared to doing it yourself.
-                    In one study, AI users showed 55% lower cognitive
-                    engagement, and 83% couldn't recall key details from tasks
-                    they had just completed.
-                    <br></br>
-                    <br></br>
-                    There's no completely neutral baseline. Every time you hand
-                    a task to AI, your brain opts out a little. No one is exempt
-                    from the lingering effects of taking shortcuts.
-                  </div>
-                )}
-                {userType() == 1 && (
-                  <div className="ai-usage-effect">
-                    At the rate you use AI, the research gets hard to ignore.
-                    <br></br>
-                    <br></br>
-                    Studies show a correlation of r = -0.68 between AI usage and
-                    cognitive decline. Memory, attention, critical thinking,
-                    decision-making, all of these vital functionalities are
-                    shown to be declining in people using AI at the same
-                    frequency you do. You may have already noticed something
-                    feels off. AI users at your level report a 17% decrease in
-                    knowledge retention. You may have a harder time focusing and
-                    remembering information.
-                    <br></br>
-                    <br></br>
-                    You are at the stage where the effects of AI stop being
-                    subtle.
-                  </div>
-                )}
-                {userType() == 2 && (
-                  <div className="ai-usage-effect" style = {{ marginTop: "300px" }}>
-                    At your usage level, you've already crossed the line from
-                    convenience into dependency.
-                    <br></br>
-                    <br></br>
-                    Research shows a strong negative correlation between AI
-                    usage and cognitive decline, meaning the heavier the use AI,
-                    the more significant the effects. Memory, attention,
-                    critical thinking and decision-making are all things you
-                    risk. On top of that, the constant back-and-forth with AI
-                    dismantles your ability to think on your own, with users who
-                    use similar amounts of AI as you reporting significant
-                    cognitive fatigue and burnout. That dependency has been
-                    linked to broader mental health decline as well. Your
-                    overall wellbeing is at risk.
-                    <br></br>
-                    <br></br>
-                    The tool you're using to save time may be costing you
-                    something much harder to get back.
-                  </div>
-                )}
-              </>
+              <div style={{ flex: 1 }}>
+                <div
+                  className="answer-card"
+                  style={{ textAlign: "left", marginBottom: "300px" }}
+                >
+                  <>
+                    {userType() == 0 && (
+                      <div
+                        className="ai-usage-effect"
+                        //style={{ marginTop: "400px" }}
+                      >
+                        You use AI occasionally, and that probably feels
+                        harmless.
+                        <br></br>
+                        <br></br>
+                        But even a single AI-assisted task produces measurably
+                        reduced neural connectivity compared to doing it
+                        yourself. In one study, AI users showed 55% lower
+                        cognitive engagement, and 83% couldn't recall key
+                        details from tasks they had just completed.
+                        <br></br>
+                        <br></br>
+                        There's no completely neutral baseline. Every time you
+                        hand a task to AI, your brain opts out a little. No one
+                        is exempt from the lingering effects of taking
+                        shortcuts.
+                      </div>
+                    )}
+                    {userType() == 1 && (
+                      <div className="ai-usage-effect">
+                        At the rate you use AI, the research gets hard to
+                        ignore.
+                        <br></br>
+                        <br></br>
+                        Studies show a correlation of r = -0.68 between AI usage
+                        and cognitive decline. Memory, attention, critical
+                        thinking, decision-making, all of these vital
+                        functionalities are shown to be declining in people
+                        using AI at the same frequency you do. You may have
+                        already noticed something feels off. AI users at your
+                        level report a 17% decrease in knowledge retention. You
+                        may have a harder time focusing and remembering
+                        information.
+                        <br></br>
+                        <br></br>
+                        You are at the stage where the effects of AI stop being
+                        subtle.
+                      </div>
+                    )}
+                    {userType() == 2 && (
+                      <div
+                        className="ai-usage-effect"
+                        //style={{ marginTop: "300px" }}
+                      >
+                        At your usage level, you've already crossed the line
+                        from convenience into dependency.
+                        <br></br>
+                        <br></br>
+                        Research shows a strong negative correlation between AI
+                        usage and cognitive decline, meaning the heavier the use
+                        AI, the more significant the effects. Memory, attention,
+                        critical thinking and decision-making are all things you
+                        risk. On top of that, the constant back-and-forth with
+                        AI dismantles your ability to think on your own, with
+                        users who use similar amounts of AI as you reporting
+                        significant cognitive fatigue and burnout. That
+                        dependency has been linked to broader mental health
+                        decline as well. Your overall wellbeing is at risk.
+                        <br></br>
+                        <br></br>
+                        The tool you're using to save time may be costing you
+                        something much harder to get back.
+                      </div>
+                    )}
+                  </>
+                </div>
+              </div>
+              <div style={{ flex: 1 }}>
+                <img
+                  src="your-image.jpg"
+                  style={{ width: "100%", borderRadius: "12px" }}
+                />
+              </div>
             </div>
+
             <div className="ai-usage-effect" style={{ textAlign: "left" }}>
               <h1
                 style={{
