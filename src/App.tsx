@@ -543,7 +543,11 @@ export default function App() {
                   rel="noopener noreferrer"
                 >
                   less.ca
-                </a>
+                </a>{" "}
+                (that's only $
+                {Math.round(CO2Num(kiloWattHrs() * 0.00110231131 * 24) * 100) /
+                  100}{" "}
+                to offset a year of emissions!)
                 <br></br>
                 <br></br>
                 Through donating or volunteering with different organizations,
