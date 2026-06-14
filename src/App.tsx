@@ -210,6 +210,8 @@ export default function App() {
     });
   }, [finished]);
 
+  setTimeout(() => confetti.reset(), 3000);
+
   return (
     <div className="custom-player">
       {!submitted && (
