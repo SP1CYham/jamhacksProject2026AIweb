@@ -360,7 +360,7 @@ export default function App() {
               className="answer-card"
               style={{
                 textAlign: "left",
-                marginBottom: "-300",
+                marginBottom: "0",
                 marginTop: "0",
               }}
             >
