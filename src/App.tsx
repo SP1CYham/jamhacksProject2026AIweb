@@ -235,7 +235,7 @@ export default function App() {
           <>
             <div className="answer-card" style={{ marginBottom: "200px" }}>
               <h3 style={{ marginBottom: "-5px", fontSize: "50px" }}>
-                you saved:
+                You Saved:
               </h3>
               <h1 style={{ marginBottom: "-5px", fontSize: "80px" }}>
                 {q1 !== null && q3 !== null
@@ -248,7 +248,7 @@ export default function App() {
 
             <div
               className="answer-card"
-              style={{ textAlign: "center", marginBottom: "200px" }}
+              style={{ textAlign: "center", marginBottom: "-260px" }}
             >
               <h1
                 style={{
@@ -257,10 +257,15 @@ export default function App() {
               >
                 But what did it cost?
               </h1>
-              AI is reshaping how your brain works,
-              <div>whether you realize it or not.</div>
+              <strong>AI is reshaping how your brain works,</strong>
+              <div>
+                <strong>whether you realize it or not.</strong>
+              </div>
             </div>
-            <div className="answer-card" style={{ textAlign: "left" }}>
+            <div
+              className="answer-card"
+              style={{ textAlign: "left", marginBottom: "-220px" }}
+            >
               <>
                 <br></br>
                 {userType() == 0 && (
@@ -301,20 +306,20 @@ export default function App() {
                 )}
                 {userType() == 2 && (
                   <div>
-                    At the rate you use AI, dependency isn't a risk, it's likely
-                    already present.
+                    At your usage level, you've already crossed the line from
+                    convenience into dependency.
                     <br></br>
                     <br></br>
                     Research shows a strong negative correlation between AI
-                    usage and cognitive decline, meaning the heavier the use,
+                    usage and cognitive decline, meaning the heavier the use AI,
                     the more significant the effects. Memory, attention,
                     critical thinking and decision-making are all things you
                     risk. On top of that, the constant back-and-forth with AI
                     dismantles your ability to think on your own, with users who
                     use similar amounts of AI as you reporting significant
                     cognitive fatigue and burnout. That dependency has been
-                    linked to broader mental health decline. Your overall
-                    wellbeing is at risk.
+                    linked to broader mental health decline as well. Your
+                    overall wellbeing is at risk.
                     <br></br>
                     <br></br>
                     The tool you're using to save time may be costing you
@@ -322,7 +327,17 @@ export default function App() {
                   </div>
                 )}
               </>
-              <div>But what about the environmental impacts of using AI?</div>
+            </div>
+            <div className="answer-card" style={{ textAlign: "left" }}>
+              <h1
+                style={{
+                  textAlign: "center",
+                  transition: "opacity 0.4s ease",
+                  marginBottom: "40px",
+                }}
+              >
+                But what about the environmental impacts of using AI?
+              </h1>
               <div>
                 Well, as it turns out, your usage of AI may use less natural
                 resources than you may think.
