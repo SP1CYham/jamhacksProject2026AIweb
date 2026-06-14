@@ -257,6 +257,12 @@ export default function App() {
             </video>
           ))}
         </div>
+        <div
+          className="ai-usage-effect"
+          style={{ textAlign: "center", fontSize: "30px" }}
+        >
+          AI is a powerful tool, but how much time does it really save?
+        </div>
         {!submitted && (
           <>
             <Slider question={prompts.question} onChange={prompts.setValue} />
