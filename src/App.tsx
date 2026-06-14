@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./components/Question.css";
+import confetti from "canvas-confetti";
 
 import {
   SliderQuestion,
@@ -126,6 +127,9 @@ export default function App() {
   const q1 = prompts.question.value;
   const q3 = usage.question.value;
 
+  const timeSaved = () =>
+    q1 !== null && q3 !== null ? Math.round(Q1(q1) * Q3(q3) * 30 * 10) / 10 : 0;
+
   function userType() {
     var index = 0;
     if (q1 !== null) {
@@ -159,6 +163,52 @@ export default function App() {
       generation.question.value[1],
     );
   }
+
+  function useCountUp(target: number, duration = 1500, enabled = true) {
+    const [count, setCount] = useState(0);
+    const [finished, setFinished] = useState(false);
+
+    useEffect(() => {
+      if (!enabled) return;
+      setCount(0);
+      setFinished(false);
+
+      let start = 0;
+      const steps = 60;
+      const increment = target / steps;
+      const interval = duration / steps;
+
+      const timer = setInterval(() => {
+        start += increment / 4 + start / 50;
+        if (start >= target) {
+          setCount(target);
+          setFinished(true);
+          clearInterval(timer);
+        } else {
+          setCount(Math.round(start * 10) / 10);
+        }
+      }, interval);
+
+      return () => clearInterval(timer);
+    }, [target, duration, enabled]);
+
+    return { count, finished };
+  }
+
+  const { count: savedCount, finished } = useCountUp(
+    timeSaved(),
+    1500,
+    submitted,
+  );
+
+  useEffect(() => {
+    if (!finished) return;
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 1 },
+    });
+  }, [finished]);
 
   return (
     <div className="custom-player">
@@ -238,17 +288,14 @@ export default function App() {
                 You Saved:
               </h3>
               <h1 style={{ marginBottom: "-5px", fontSize: "80px" }}>
-                {q1 !== null && q3 !== null
-                  ? Math.round(Q1(q1) * Q3(q3) * 30 * 100) / 100
-                  : "uh oh"}{" "}
-                hours!
+                {savedCount} hours!
               </h1>
               <h4>in the last month</h4>
             </div>
 
             <div
               className="answer-card"
-              style={{ textAlign: "center", marginBottom: "-260px" }}
+              style={{ textAlign: "center", marginBottom: "-220px" }}
             >
               <h1
                 style={{
@@ -267,10 +314,6 @@ export default function App() {
               style={{ textAlign: "left", marginBottom: "-220px" }}
             >
               <>
-                <line style={{ fontWeight: "bold" }}>
-                  Based on your answers...
-                </line>
-                <br></br>
                 {userType() == 0 && (
                   <div className="ai-usage-effect">
                     You use AI occasionally, and that probably feels harmless.
