@@ -526,7 +526,7 @@ export default function App() {
                 energy costs and diverting a significant amount of local usable
                 water.
               </div>
-              <div>
+              <div style={{ marginBottom: "75px" }}>
                 Thankfully, there are multiple ways you can help offset your
                 environmental impact. You can offset your personal usage of
                 carbon-intensive tools and benefit the environment by purchasing
@@ -557,6 +557,13 @@ export default function App() {
                 >
                   drinkable water.
                 </a>
+              </div>
+              <div style={{ marginTop: "200px" }}>
+                T(AI)ME
+                <br></br>
+                made by Elliot Zhou, Andrew Zhang, Lucas Ma, Kyle Huang
+                <br></br>
+                for JamHacks 2026
               </div>
             </div>
           </>
