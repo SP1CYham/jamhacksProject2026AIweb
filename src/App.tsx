@@ -36,8 +36,8 @@ export default function App() {
       [
         {
           label: "Small (basic/built in)",
-          color: "#f1e579",
-          icon: "yelloe.png",
+          color: "#84ffe0",
+          icon: "c0.png",
           subtitle: "etc. Llama 3.1/Meta, Qwen 2.5 7B/Alibaba",
         },
         {
@@ -106,8 +106,8 @@ export default function App() {
       "What do you typically use AI to generate?",
       "%",
       [
-        { label: "Text", color: "#f1e579", icon: "writing.png" },
-        { label: "Images", color: "#ee9c37", icon: "images.png" },
+        { label: "Text", color: "#84ffe0", icon: "iText.png" },
+        { label: "Images", color: "#244197", icon: "iImg.png" },
       ],
       [50, 50],
     ),

@@ -148,6 +148,30 @@ body {
   color: #244197;
 }
 
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: none;
+  box-shadow: none;
+  cursor: grab;
+  background-image: url('./c2');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+input[type='range']::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+input[type='range']::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(0.9);
+}
+
 .question__slider-row--readonly input,
 .question__slider-row--readonly {
   opacity: 0.85;
