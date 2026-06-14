@@ -52,8 +52,6 @@ body {
   to   { transform: translateY(0%); } /* half of the 50% extra space = 0.5x ratio */
 }
 
-
-
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -357,7 +355,8 @@ transform:scale(1);
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem auto;
+  padding: 2rem;
+  margin: auto;
   position: relative;
   filter: drop-shadow(4px 4px 4px rgba(43, 42, 116, 0.521));
   animation: fadeIn 1s ease forwards;
