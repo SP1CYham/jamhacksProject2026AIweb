@@ -149,9 +149,10 @@ export default function App() {
       top: 0,
       behavior: "smooth", // Enables smooth scrolling
     });
+    setActiveIndex(1);
   }
 
-  const videos = ["bg1.mp4", "nightsky.mp4", "sunset.mp4"];
+  const videos = ["bg1.mp4", "bg2.mp4"];
   const [activeIndex, setActiveIndex] = useState(0);
 
   function kiloWattHrs() {
@@ -222,7 +223,7 @@ export default function App() {
       <div className="parallax-bg" />
       <div
         style={{
-          maxWidth: 950,
+          maxWidth: 480,
           margin: "2rem auto",
           display: "flex",
           flexDirection: "column",
