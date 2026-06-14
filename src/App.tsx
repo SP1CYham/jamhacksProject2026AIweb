@@ -36,26 +36,26 @@ export default function App() {
       [
         {
           label: "Small (basic/built in)",
-          color: "#f1e579",
-          icon: "yelloe.png",
+          color: "#84ffe0",
+          icon: "c0.png",
           subtitle: "etc. Llama 3.1/Meta, Qwen 2.5 7B/Alibaba",
         },
         {
           label: "Mid (free and simple)",
-          color: "#ee9c37",
-          icon: "orangelight.png",
+          color: "#94daed",
+          icon: "c1.png",
           subtitle: "etc. Claude Haiku 4.5, Gemini 2.0 Flash",
         },
         {
           label: "Large Frontier (most common, some paid)",
-          color: "#d46948",
-          icon: "orang.png",
+          color: "#5b9bd6",
+          icon: "c2.png",
           subtitle: "etc. GPT-4o/ChatGPT, Gemini 1.5, DeepSeek V3",
         },
         {
           label: "Chain-Of-Thought (deep reasoning)",
-          color: "#a13838",
-          icon: "red.png",
+          color: "#3468bc",
+          icon: "c3.png",
           subtitle: "etc. OpenAI o3, Claude Opus 4.x, Gemini 2.5 Pro",
         },
       ],
@@ -70,17 +70,17 @@ export default function App() {
       [
         {
           label: "Coding/Problem Solving",
-          color: "#f1e579",
-          icon: "yelloe.png",
+          color: "#84ffe0",
+          icon: "c0.png",
         },
-        { label: "Writing", color: "#ee9c37", icon: "orangelight.png" },
-        { label: "Research", color: "#d46948", icon: "orang.png" },
+        { label: "Writing", color: "#94daed", icon: "c1.png" },
+        { label: "Research", color: "#5b9bd6", icon: "c2.png" },
         {
           label: "Everyday Questions/Tasks",
-          color: "#a13838",
-          icon: "red.png",
+          color: "#3468bc",
+          icon: "c3.png",
         },
-        { label: "Other", color: "#450d0d", icon: "darkassred.png" },
+        { label: "Other", color: "#244197", icon: "c4.png" },
       ],
       [20, 20, 20, 20, 20],
     ),
@@ -299,16 +299,31 @@ export default function App() {
               className="answer-card"
               style={{ textAlign: "center", marginBottom: "300px" }}
             >
+            <div
+              className="answer-card"
+              style={{ textAlign: "center", marginBottom: "300px" }}
+            >
               <h3 style={{ marginBottom: "-5px", fontSize: "50px" }}>
                 You Saved
               </h3>
-              <h1 style={{ marginBottom: "-5px", fontSize: "80px" }}>
+              <h1
+                style={{
+                  marginBottom: "-5px",
+                  fontSize: "80px",
+                  fontWeight: "bold",
+                }}
+              >
                 {savedCount} hours
               </h1>
               <h4>in the last month!</h4>
             </div>
             <div
               className="answer-card"
+              style={{
+                textAlign: "center",
+                marginBottom: "-100px",
+                fontSize: "50px",
+              }}
               style={{
                 textAlign: "center",
                 marginBottom: "-100px",
