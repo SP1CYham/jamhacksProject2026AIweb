@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import ReactCurvedText from "react-curved-text";
+import { useState } from "react";
 import "./components/Question.css";
 
 
