@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./components/Question.css";
 
-
 import {
   SliderQuestion,
   PercentageScrollbarQuestion,
@@ -136,7 +135,7 @@ export default function App() {
     setSubmitted(true);
     window.scrollTo({
       top: 0,
-      behavior: "auto", // Enables smooth scrolling
+      behavior: "smooth", // Enables smooth scrolling
     });
   }
 
