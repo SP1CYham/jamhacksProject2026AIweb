@@ -138,14 +138,14 @@ body {
   min-width: 2.5rem;
   text-align: right;
   font-variant-numeric: tabular-nums;
-  color: #1a3a5c;
+  color: #3468bc;
   font-size: 0.9rem;
 }
 
 .question__slider-option-label {
   min-width: 6rem;
   font-size: 0.9rem;
-  color: #1a3a5c;
+  color: #244197;
 }
 
 .question__slider-row--readonly input,
@@ -280,13 +280,17 @@ body {
   cursor: grab;
   touch-action: none;
   box-shadow: 0 1px 4px rgba(60, 122, 181, 0.18);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
-.percentage-scrollbar__handle:active { cursor: grabbing; }
+.percentage-scrollbar__handle:hover {
+  transform: translateY(-50%) rotate(15deg) scale(1.2);
+  box-shadow: 0 4px 10px rgba(60, 122, 181, 0.35);
+}
 
-.percentage-scrollbar__handle:focus-visible {
-  outline: 2px solid #5b9bd6;
-  outline-offset: 2px;
+.percentage-scrollbar__handle:active {
+  cursor: grabbing;
+  transform: translateY(-50%) rotate(-5deg) scale(0.9);
 }
 
 .percentage-scrollbar__icons {
