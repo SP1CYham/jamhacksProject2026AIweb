@@ -403,3 +403,7 @@ transform:scale(1);
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(80, 140, 210, 0.22);
 }
+
+.ai-usage-effect {
+  font-family: 'Sour Gummy', sans-serif;
+}
