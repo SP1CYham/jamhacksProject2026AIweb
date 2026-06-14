@@ -10,7 +10,7 @@ body::before {
   position: fixed;
   inset: -50% 0;        /* extra height so it doesn't run out of image */
   z-index: -1;
-  background-image: url('skyTest.PNG');
+  background-image: url('skyday.png');
   background-size: cover;
   background-position: center;
   animation: parallax-bg linear both;
