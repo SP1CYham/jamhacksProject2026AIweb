@@ -257,14 +257,19 @@ export default function App() {
             </video>
           ))}
         </div>
-        <div
-          className="ai-usage-effect"
-          style={{ textAlign: "center", fontSize: "30px" }}
-        >
-          AI is a powerful tool, but how much time does it really save?
-        </div>
         {!submitted && (
           <>
+            <div
+              className="ai-usage-effect"
+              style={{
+                textAlign: "center",
+                fontSize: "30px",
+                marginTop: "-30px",
+                marginBottom: "30px",
+              }}
+            >
+              AI is a powerful tool, but how much time does it really save?
+            </div>
             <Slider question={prompts.question} onChange={prompts.setValue} />
             <PercentageScrollbar
               question={models.question}
@@ -323,7 +328,7 @@ export default function App() {
               <h4>in the last month!</h4>
             </div>
             <div
-              className="answer-card isShadow"
+              className={transitioned ? "isShadow answer-card" : "answer-card"}
               style={{
                 textAlign: "center",
                 marginBottom: "-40px",
@@ -352,8 +357,12 @@ export default function App() {
             <div id="trigger-point"></div>
 
             <div
-              className="answer-card isShadow"
-              style={{ textAlign: "left", marginBottom: "-200px" }}
+              className="answer-card"
+              style={{
+                textAlign: "left",
+                marginBottom: "-300",
+                marginTop: "0",
+              }}
             >
               <>
                 <div
@@ -363,7 +372,7 @@ export default function App() {
                     gap: "40px",
                   }}
                 >
-                  <div style={{ flex: 1 }}>
+                  <div className="isShadow" style={{ flex: 2 }}>
                     {userType() == 0 && (
                       <div className="ai-usage-effect">
                         You use AI occasionally, and that probably feels
@@ -430,7 +439,7 @@ export default function App() {
 
                   <div style={{ flex: 1 }}>
                     <img
-                      src="your-image.jpg"
+                      src="brain.png"
                       alt="Description"
                       style={{ width: "100%", borderRadius: "12px" }}
                     />
