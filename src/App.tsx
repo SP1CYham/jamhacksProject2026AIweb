@@ -372,9 +372,12 @@ export default function App() {
                     gap: "40px",
                   }}
                 >
-                  <div className="isShadow" style={{ flex: 2 }}>
+                  <div
+                    className="isShadow"
+                    style={{ flex: 2, fontSize: "1.5rem" }}
+                  >
                     {userType() == 0 && (
-                      <div className="ai-usage-effect">
+                      <div>
                         You use AI occasionally, and that probably feels
                         harmless.
                         <br></br>
@@ -393,7 +396,7 @@ export default function App() {
                       </div>
                     )}
                     {userType() == 1 && (
-                      <div className="ai-usage-effect">
+                      <div>
                         At the rate you use AI, the research gets hard to
                         ignore.
                         <br></br>
@@ -414,7 +417,7 @@ export default function App() {
                       </div>
                     )}
                     {userType() == 2 && (
-                      <div className="ai-usage-effect">
+                      <div>
                         At your usage level, you've already crossed the line
                         from convenience into dependency.
                         <br></br>
@@ -455,7 +458,9 @@ export default function App() {
                   marginBottom: "40px",
                 }}
               >
-                But what about the environmental<br></br>impacts of using AI?
+                <div className="isShadow">
+                  But what about the environmental<br></br>impacts of using AI?
+                </div>
                 <div
                   style={{
                     fontSize: "16px",
@@ -511,8 +516,8 @@ export default function App() {
                     {Math.round(WaterNum(kiloWattHrs()) * 100) / 100} L of Water
                   </div>
                   <div>
-                    That’s the equivalent of running a standard fridge for{" "}
-                    {Math.round((kiloWattHrs() * 100) / 1.99) / 100} days.
+                    That’s the equivalent of taking{" "}
+                    {Math.round((kiloWattHrs() * 100) / 60) / 100} showers.
                   </div>
                 </div>
               </div>
@@ -524,22 +529,21 @@ export default function App() {
                 AI is the construction of data centers, which will actually
                 siphon significant resources from local communities, placing
                 significant strain on electricity and water systems.
+                <br></br>
+                <br></br>
               </div>
-              <div>
+              <div style={{ marginBottom: "75px" }}>
                 Based on your location in Ontario, the current load of data
                 centers already accounts for approximately 30 per cent of
                 Ontario's peak demand for energy. In the next 10 years, Ontario
                 expects 16 more data centres to connect to its grid, resulting
                 in an expected change of 75 percent in 2025 up from just 60
-                percent in 2024.
-              </div>
-              <div style={{ marginBottom: "75px" }}>
-                One data centre can use as much electricity as 100,000
-                households, according to the International Energy Agency. This
-                is why the introduction of data centres into communities like
-                yours can significantly change your local community, driving up
-                energy costs and diverting a significant amount of local usable
-                water.
+                percent in 2024. One data centre can use as much electricity as
+                100,000 households, according to the International Energy
+                Agency. This is why the introduction of data centres into
+                communities like yours can significantly change your local
+                community, driving up energy costs and diverting a significant
+                amount of local usable water.
               </div>
               <div style={{ marginBottom: "75px" }}>
                 Thankfully, there are multiple ways you can help offset your
