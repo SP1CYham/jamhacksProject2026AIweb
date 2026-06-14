@@ -36,8 +36,8 @@ export default function App() {
       [
         {
           label: "Small (basic/built in)",
-          color: "#84ffe0",
-          icon: "c0.png",
+          color: "#f1e579",
+          icon: "yelloe.png",
           subtitle: "etc. Llama 3.1/Meta, Qwen 2.5 7B/Alibaba",
         },
         {
@@ -232,7 +232,7 @@ export default function App() {
       <div className="parallax-bg" />
       <div
         style={{
-          maxWidth: 480,
+          maxWidth: 950,
           margin: "2rem auto",
           display: "flex",
           flexDirection: "column",
@@ -313,7 +313,6 @@ export default function App() {
               </h1>
               <h4>in the last month!</h4>
             </div>
-            <div id="trigger-point"></div>
             <div
               className="answer-card"
               style={{
@@ -325,13 +324,14 @@ export default function App() {
               <h1
                 style={{
                   transition: "opacity 0.4s ease",
+                  fontSize: "40px",
                 }}
               >
                 But what's the REAL cost of that time saved?
               </h1>
               <strong style={{ fontSize: "20px" }}>
-                AI is reshaping how your brain works, <br></br>whether you
-                realize it or not.
+                AI is reshaping how your brain works, whether you realize it or
+                not.
               </strong>
             </div>
             <div
