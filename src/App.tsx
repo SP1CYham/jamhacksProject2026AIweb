@@ -446,14 +446,14 @@ export default function App() {
                   marginBottom: "40px",
                 }}
               >
-                But what about the environmental impacts of using AI?
+                But what about the environmental<br></br>impacts of using AI?
                 <div
                   style={{
-                    fontSize: "20px",
+                    fontSize: "16px",
                   }}
                 >
-                  It may be surprising but your usage of AI uses less natural
-                  resources than you may think.
+                  Your usage of AI uses less natural resources than you may
+                  think.
                 </div>
               </h1>
 
@@ -502,12 +502,14 @@ export default function App() {
                     {Math.round(WaterNum(kiloWattHrs()) * 100) / 100} L of Water
                   </div>
                   <div>
-                    That’s the equivalent of running a standard fridge for only{" "}
+                    That’s the equivalent of running a standard fridge for{" "}
                     {Math.round((kiloWattHrs() * 100) / 1.99) / 100} days.
                   </div>
                 </div>
               </div>
               <div>
+                <br></br>
+                <br></br>
                 This isn’t to say that your usage of AI will not have an impact
                 on communities. One of the largest concerns with the growth of
                 AI is the construction of data centers, which will actually
@@ -522,13 +524,45 @@ export default function App() {
                 in an expected change of 75 percent in 2025 up from just 60
                 percent in 2024.
               </div>
-              <div>
+              <div style={{ marginBottom: "75px" }}>
                 One data centre can use as much electricity as 100,000
                 households, according to the International Energy Agency. This
                 is why the introduction of data centres into communities like
                 yours can significantly change your local community, driving up
                 energy costs and diverting a significant amount of local usable
                 water.
+              </div>
+              <div>
+                Thankfully, there are multiple ways you can help offset your
+                environmental impact. You can offset your personal usage of
+                carbon-intensive tools and benefit the environment by purchasing
+                carbon credits at websites like{" "}
+                <a
+                  href="https://www.less.ca/en-ca/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  less.ca
+                </a>
+                <br></br>
+                <br></br>
+                Through donating or volunteering with different organizations,
+                you can support the restoration of{" "}
+                <a
+                  href="https://waterfirst.ngo/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  watersheds
+                </a>{" "}
+                and{" "}
+                <a
+                  href="https://conservationontario.ca/conservation-authorities/watershed-stewardship/watershed-stewardship-programs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  drinkable water.
+                </a>
               </div>
             </div>
           </>
