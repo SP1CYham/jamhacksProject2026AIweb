@@ -162,9 +162,11 @@ export default function App() {
 
   return (
     <div className="custom-player">
-      <video className="title_page" autoPlay muted loop>
-        <source src="/title_page.webm" type="video/mp4" />
-      </video>
+      {!submitted && (
+        <video className="title_page" autoPlay muted loop>
+          <source src="/title_page.webm" type="video/mp4" />
+        </video>
+      )}
       <div className="parallax-bg" />
       <div
         style={{
