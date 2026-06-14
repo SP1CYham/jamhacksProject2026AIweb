@@ -149,7 +149,6 @@ export default function App() {
       top: 0,
       behavior: "smooth", // Enables smooth scrolling
     });
-    setActiveIndex(1);
   }
 
   const videos = ["bg1.mp4", "bg2.mp4"];
@@ -211,6 +210,18 @@ export default function App() {
     });
   }, [finished]);
 
+  const target = document.querySelector("#trigger-point");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setActiveIndex(1); // called when element enters the viewport
+      }
+    });
+  });
+  if (target) {
+    observer.observe(target);
+  }
+
   return (
     <div className="custom-player">
       {!submitted && (
@@ -221,7 +232,7 @@ export default function App() {
       <div className="parallax-bg" />
       <div
         style={{
-          maxWidth: 950,
+          maxWidth: 480,
           margin: "2rem auto",
           display: "flex",
           flexDirection: "column",
@@ -293,7 +304,7 @@ export default function App() {
               </h1>
               <h4>in the last month!</h4>
             </div>
-
+            <div id="trigger-point"></div>
             <div
               className="answer-card"
               style={{ textAlign: "center", marginBottom: "-100px", fontSize: "50px" }}
@@ -383,7 +394,7 @@ export default function App() {
                 But what about the environmental impacts of using AI?
               </h1>
               <div>
-                Well, as it turns out, your usage of AI may use less natural
+                It may be surprising but your usage of AI uses less natural
                 resources than you may think.
               </div>
               <div>
@@ -401,12 +412,12 @@ export default function App() {
                 ride.
               </div>
               <div>
-                But what about your water usage? Well based on your results you
-                have used {Math.round(WaterNum(kiloWattHrs()) * 100) / 100}{" "}
-                Litres of water in the past year, which accounts for both water
-                usage for energy production and water used to cool data centers.
-                Consider that making a single single beef burger patty requires
-                around 2,400 litres of water to produce.
+                But what about your water usage? Based on your results you have
+                used {Math.round(WaterNum(kiloWattHrs()) * 100) / 100} Litres of
+                water in the past year, which accounts for both water usage for
+                energy production and water used to cool data centers. Consider
+                that making a single single beef burger patty requires around
+                2,400 litres of water to produce.
               </div>
               <div>
                 This isn’t to say that your usage of AI will not have an impact
