@@ -225,10 +225,10 @@ export default function App() {
               <h4>last month!</h4>
             </div>
 
-            <div style={{ textAlign: "center", marginBottom: "200px" }}>
+            <div className = "ai-usage-effect" style={{ textAlign: "center", marginBottom: "200px"}}>
               <h1
                 style={{
-                  transition: "opacity 0.4s ease",
+                  transition: "opacity 0.4s ease", 
                 }}
               >
                 but what did it cost?
@@ -236,14 +236,14 @@ export default function App() {
               AI is reshaping how your brain works, quietly and consistently.
               The research isn't speculative anymore.
             </div>
-            <div style={{ textAlign: "left" }}>
+            <div className = "ai-usage-effect" style={{ textAlign: "left"}}>
               <>
-                <line style={{ fontWeight: "bold" }}>
-                  Based on your answers...
+                <line style={{textAlign: "center", display: "block", fontSize: "40px"}}>
+                  based on your answers...
                 </line>
                 <br></br>
                 {userType() == 0 && (
-                  <div>
+                  <div className = "ai-usage-effect">
                     You use AI occasionally, and that probably feels harmless.
                     But even a single AI-assisted task produces measurably
                     reduced neural connectivity compared to doing it alone. In
@@ -258,7 +258,7 @@ export default function App() {
                   </div>
                 )}
                 {userType() == 1 && (
-                  <div>
+                  <div className = "ai-usage-effect">
                     At the rate you use AI, the research gets hard to ignore.
                     Studies show a correlation of r = -0.68 between AI usage and
                     cognitive decline. Memory, attention, critical thinking,
@@ -275,7 +275,7 @@ export default function App() {
                   </div>
                 )}
                 {userType() == 2 && (
-                  <div>
+                  <div className = "ai-usage-effect">
                     At the rate you use, AI dependency isn't a risk. It's likely
                     already present. Research shows a strong negative
                     correlation between AI usage and cognitive decline, meaning
@@ -295,9 +295,10 @@ export default function App() {
                   </div>
                 )}
               </>
-              <div>
-                you used {kiloWattHrs()}
-                many kilo watt hours
+              <div className = "ai-usage-effect" style={{textAlign: "center", marginTop: "50px", fontSize: "20px"}}>
+                you used
+                <line style = {{ fontWeight: "bold", fontSize: "30px", margin: "0 0.5rem" }}>{ kiloWattHrs() }</line>
+                kWh
               </div>
             </div>
           </>
