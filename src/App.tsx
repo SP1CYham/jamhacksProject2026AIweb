@@ -257,8 +257,8 @@ export default function App() {
               >
                 But what did it cost?
               </h1>
-              AI is reshaping how your brain works, whether you realize it or
-              not.
+              AI is reshaping how your brain works,
+              <div>whether you realize it or not.</div>
             </div>
             <div style={{ textAlign: "left" }}>
               <>
