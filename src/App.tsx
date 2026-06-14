@@ -239,36 +239,38 @@ export default function App() {
                 {q1 !== null && q3 !== null
                   ? Math.round(Q1(q1) * Q3(q3) * 30 * 100) / 100
                   : "uh oh"}{" "}
-                hours
+                hours!
               </h1>
-              <h4>last month!</h4>
+              <h4>in the last month</h4>
             </div>
 
-            <div style={{ textAlign: "center", marginBottom: "200px" }}>
+            <div
+              className="answer-card"
+              style={{ textAlign: "center", marginBottom: "200px" }}
+            >
               <h1
                 style={{
                   transition: "opacity 0.4s ease",
                 }}
               >
-                but what did it cost?
+                But what did it cost?
               </h1>
-              Your dependency on AI is showing a significant impact on how your
-              brain WORKS!
+              AI is reshaping how your brain works, whether you realize it or
+              not.
             </div>
-            <div style={{ textAlign: "left" }}>
+            <div className="answer-card" style={{ textAlign: "left" }}>
               <>
-                <line style={{ fontWeight: "bold" }}>
-                  Based on your answers...
-                </line>
                 <br></br>
                 {userType() == 0 && (
                   <div>
                     You use AI occasionally, and that probably feels harmless.
+                    <br></br>
+                    <br></br>
                     But even a single AI-assisted task produces measurably
-                    reduced neural connectivity compared to doing it alone. In
-                    one study, AI users showed 55% lower cognitive engagement,
-                    and 83% couldn't recall key details from tasks they had just
-                    completed.
+                    reduced neural connectivity compared to doing it yourself.
+                    In one study, AI users showed 55% lower cognitive
+                    engagement, and 83% couldn't recall key details from tasks
+                    they had just completed.
                     <br></br>
                     <br></br>
                     There's no completely neutral baseline. Every time you hand
@@ -279,6 +281,8 @@ export default function App() {
                 {userType() == 1 && (
                   <div>
                     At the rate you use AI, the research gets hard to ignore.
+                    <br></br>
+                    <br></br>
                     Studies show a correlation of r = -0.68 between AI usage and
                     cognitive decline. Memory, attention, critical thinking,
                     decision-making, all of these vital functionalities are
@@ -295,17 +299,20 @@ export default function App() {
                 )}
                 {userType() == 2 && (
                   <div>
-                    At the rate you use AI, dependency isn't a risk. It's likely
-                    already present. Research shows a strong negative
-                    correlation between AI usage and cognitive decline, meaning
-                    the heavier the use, the more significant the effects.
-                    Memory, attention, critical thinking and decision-making are
-                    all in measurable decline. On top of that, the constant
-                    back-and-forth with AI quietly dismantles your ability to
-                    think on your own, with users who use similar amounts of AI
-                    as you reporting significant cognitive fatigue and burnout.
-                    That dependency has been linked to broader mental health
-                    decline. Your overall wellbeing is at risk.
+                    At the rate you use AI, dependency isn't a risk, it's likely
+                    already present.
+                    <br></br>
+                    <br></br>
+                    Research shows a strong negative correlation between AI
+                    usage and cognitive decline, meaning the heavier the use,
+                    the more significant the effects. Memory, attention,
+                    critical thinking and decision-making are all things you
+                    risk. On top of that, the constant back-and-forth with AI
+                    dismantles your ability to think on your own, with users who
+                    use similar amounts of AI as you reporting significant
+                    cognitive fatigue and burnout. That dependency has been
+                    linked to broader mental health decline. Your overall
+                    wellbeing is at risk.
                     <br></br>
                     <br></br>
                     The tool you're using to save time may be costing you
