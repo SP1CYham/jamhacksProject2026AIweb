@@ -309,6 +309,11 @@ transform:scale(1);
   z-index: 1;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 .custom-player {
   min-height: 100vh;
   display: flex;
@@ -318,10 +323,9 @@ transform:scale(1);
   text-align: center;
   padding: 2rem;
   position: relative;
-  filter:drop-shadow(4px 4px 4px rgba(43, 42, 116, 0.521));
-
+  filter: drop-shadow(4px 4px 4px rgba(43, 42, 116, 0.521));
+  animation: fadeIn 1s ease forwards;
 }
-
 .landing__title {
   font-family: 'Instrument Serif', serif;
   font-size: clamp(2rem, 8vw, 4rem);
