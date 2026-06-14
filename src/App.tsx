@@ -67,10 +67,18 @@ export default function App() {
       "What do you commonly use AI for?",
       "%",
       [
-        { label: "Coding/Problem Solving", color: "#4c6ef5", icon: "yelloe.png" },
+        {
+          label: "Coding/Problem Solving",
+          color: "#4c6ef5",
+          icon: "yelloe.png",
+        },
         { label: "Writing", color: "#f59f00", icon: "orangelight.png" },
         { label: "Research", color: "#e64980", icon: "orang.png" },
-        { label: "Everyday Questions/Tasks", color: "#addeef", icon: "red.png" },
+        {
+          label: "Everyday Questions/Tasks",
+          color: "#addeef",
+          icon: "red.png",
+        },
         { label: "Other", color: "#37b24d", icon: "💰" },
       ],
       [20, 20, 20, 20, 20],
@@ -139,6 +147,9 @@ export default function App() {
     });
   }
 
+  const videos = ["bg1.mp4", "nightsky.mp4", "sunset.mp4"];
+  const [activeIndex, setActiveIndex] = useState(0);
+
   function kiloWattHrs() {
     return kWattHours(
       q1 == null ? 0 : q1,
@@ -166,6 +177,20 @@ export default function App() {
           zIndex: 1,
         }}
       >
+        <div className="bg-video-container">
+          {videos.map((src, i) => (
+            <video
+              key={src}
+              className={`bg-video ${i === activeIndex ? "bg-video--active" : ""}`}
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src={src} type="video/mp4" />
+            </video>
+          ))}
+        </div>
         {!submitted && (
           <>
             <Slider question={prompts.question} onChange={prompts.setValue} />
